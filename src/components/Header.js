@@ -14,7 +14,10 @@ function Header(){
       margin-left: 10px;
     }
     input {
-      height: 25px;
+      width: 500px;
+      max-width: 500px;
+      min-width: 50px;
+      height: 20px;
     }
     .right{
       margin-right: 10px;
