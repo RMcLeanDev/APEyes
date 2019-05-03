@@ -31,6 +31,7 @@ _on 5/3/19_
 * _1:30pm: finish mobile mock up._
 * _2pm: add mobile mockup and desktop mockup to readme._
 * _3pm: push files to repo._
+* _3:30pm - 4:30pm decide what apis I want to use for my mvp and add to readme_
 
 ## Research / Mockups
 ![desktop mockup](src/assets/drawing-mockup/desktop-mockup.png)
@@ -41,7 +42,6 @@ _on 5/3/19_
 _None at the time_
 
 ## MVP
-
 _[] custom logo_
 
 _[] clean ui interface_
@@ -52,6 +52,13 @@ _[] firebase authentication_
 
 _[] firebase storage_
 
+_API's_
+
+_[] better doctor_
+
+_[] pokemon_
+
+_[] giphy_
 ## Known Bugs
 
 _as of 5/3/19 - none_
