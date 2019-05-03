@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import '../scss/styles.scss';
 
 function Header(){
   const Div = styled.div`
@@ -26,7 +27,7 @@ function Header(){
   return(
     <Div>
       <p class="left"><Link to='/'>logo links to home</Link></p>
-      <input placeholder="Search"/>
+      <input className="search" placeholder="Search"/>
       <p class="right">sign in/ create a account</p>
     </Div>
   )
