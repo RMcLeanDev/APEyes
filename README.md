@@ -20,6 +20,7 @@ _This webpage is designed for anyone who is interested in using any api and want
 
 ## Time Management
 
+_on 5/3/19_
 * _8am: clone down my personal react template which can be found here https://github.com/Lilkgb/new-react-template ._
 * _9am: research what kind of api's are out and available._
 * _10am: start drawing a mock up of what I want my website to look like._
@@ -28,8 +29,8 @@ _This webpage is designed for anyone who is interested in using any api and want
 * _12pm: lunch_
 * _1pm: continue on mock up mobile._
 * _1:30pm: finish mobile mock up._
-* _2pm: add mobile mockup and desktop mockup to readme_
-* __
+* _2pm: add mobile mockup and desktop mockup to readme._
+* _3pm: push files to repo._
 
 ## Research / Mockups
 ![desktop mockup](src/assets/drawing-mockup/desktop-mockup.png)
@@ -40,6 +41,12 @@ _This webpage is designed for anyone who is interested in using any api and want
 _None at the time_
 
 ## MVP
+
+_[] custom logo_
+_[] clean ui interface_
+_[] 3-4 api's with examples_
+_[] firebase authentication_
+_[] firebase storage_
 
 ## Known Bugs
 
