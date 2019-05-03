@@ -43,9 +43,13 @@ _None at the time_
 ## MVP
 
 _[] custom logo_
+
 _[] clean ui interface_
+
 _[] 3-4 api's with examples_
+
 _[] firebase authentication_
+
 _[] firebase storage_
 
 ## Known Bugs
