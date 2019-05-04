@@ -26,7 +26,7 @@ function Header(){
   `
   return(
     <Div>
-      <p class="left"><Link to='/'>logo links to home</Link></p>
+      <p class="left">logo shows menu</p>
       <input className="search" placeholder="Search"/>
       <p class="right">sign in/ create a account</p>
     </Div>

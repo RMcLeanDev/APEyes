@@ -5,16 +5,24 @@ import Header from './Header';
 import Home from './Home';
 import { Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route component={Error404}/>
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+
+    }
+  }
+  render(){
+    return (
+      <div className="App">
+        <Header/>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route component={Error404}/>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
