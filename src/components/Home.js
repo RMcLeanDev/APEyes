@@ -19,6 +19,7 @@ function Home(){
   return(
     <div>
       <Something>Welcome to the home component</Something>
+      {process.env.GIPHY_API}
     </div>
   )
 }
