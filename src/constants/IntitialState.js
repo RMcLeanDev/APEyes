@@ -1,4 +1,4 @@
-export const giphyState = null;
+export const giphyState = [];
 export const initialState = {
   person: {
     1: {

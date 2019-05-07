@@ -9,8 +9,12 @@ const giphyReducer = (state = giphyState, action) => {
       console.log(giphyState)
       return newState;
     case types.ADD_GIFS:
-      newState = Object.assign({}, giphyState);
-      console.log(newState)
+      newState = giphyState;
+      newState = newState.splice(0, -1)
+      action.info.data.forEach(function(el) {
+        newState.push(el);
+      })
+      return newState;
     default:
       return state;
   }

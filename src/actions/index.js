@@ -11,7 +11,12 @@ export function getGif(info){
       response => response.json(),
       error => console.log("Error is:", error)
     ).then(function(json) {
-      console.log(json);
+      dispatch(addGif(json))
     })
   }
 }
+
+export const addGif = (info) => ({
+  type: types.ADD_GIFS,
+  info
+})
