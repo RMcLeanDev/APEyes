@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import '../scss/styles.scss';
+import {connect} from 'react-redux';
+import {testFunction} from './../actions';
 
-function Header(){
+function Header({dispatch}){
+  function testing(){
+    dispatch(testFunction());
+  }
   const Div = styled.div`
     width: 100%;
     background-color: lightgray;
@@ -26,11 +31,11 @@ function Header(){
   `
   return(
     <Div>
-      <p class="left">logo shows menu</p>
+      <p className="left">logo shows menu</p>
       <input className="search" placeholder="Search"/>
-      <p class="right">sign in/ create a account</p>
+      <p onClick={testing} className="right">sign in/ create a account</p>
     </Div>
   )
 }
 
-export default Header
+export default connect()(Header)
