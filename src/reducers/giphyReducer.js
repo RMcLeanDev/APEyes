@@ -6,8 +6,8 @@ const giphyReducer = (state = giphyState, action) => {
   let newGifs;
   switch (action.type) {
     case types.TEST_FUNCTION:
-      newState = null;
-      console.log(giphyState)
+      newState = state.slice()
+      console.log("hhhhhh")
       return newState;
     case types.INITIAL_GIFS:
       newState = state.slice();
