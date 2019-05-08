@@ -1,14 +1,10 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import '../scss/styles.scss';
 import {connect} from 'react-redux';
-import {testFunction} from './../actions';
 
 function Header({dispatch}){
-  function testing(){
-    dispatch(testFunction());
-  }
   const Div = styled.div`
     width: 100%;
     background-color: lightgray;
@@ -16,6 +12,8 @@ function Header({dispatch}){
     height: 50px;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
     .left{
       margin-left: 10px;
     }
@@ -27,13 +25,14 @@ function Header({dispatch}){
     }
     .right{
       margin-right: 10px;
+      text-decoration: none;
     }
   `
   return(
     <Div>
       <p className="left">logo shows menu</p>
       <input className="search" placeholder="Search"/>
-      <p onClick={testing} className="right">sign in/ create a account</p>
+      <p className="right"><Link to='/'>sign in/ create a account</Link></p>
     </Div>
   )
 }

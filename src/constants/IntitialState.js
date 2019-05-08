@@ -1,4 +1,4 @@
-export const giphyState = [];
+export const giphyState = [{url: null, title: "", id: 1}];
 export const initialState = {
   person: {
     1: {
