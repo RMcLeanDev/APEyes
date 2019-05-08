@@ -9,7 +9,7 @@ let a;
 export function getGif(info, num){
   return function (dispatch){
     info = info.replace(' ', '+');
-    return fetch(`http://api.giphy.com/v1/gifs/search?q=${info}&api_key=${process.env.GIPHY_API}&limit=${num}`).then(
+    return fetch(`https://api.giphy.com/v1/gifs/search?q=${info}&api_key=${process.env.GIPHY_API}&limit=${num}`).then(
       response => response.json(),
       error => console.log("Error is:", error)
     ).then(function(json) {
@@ -22,7 +22,7 @@ export function getGif(info, num){
 export function moreGifs(info, num){
   return function (dispatch){
     info = info.replace(' ', '+');
-    return fetch(`http://api.giphy.com/v1/gifs/search?q=${info}&api_key=${process.env.GIPHY_API}&limit=${num + a}`).then(
+    return fetch(`https://api.giphy.com/v1/gifs/search?q=${info}&api_key=${process.env.GIPHY_API}&limit=${num + a}`).then(
       response => response.json(),
       error => console.log("Error is:", error)
     ).then(function(json) {
