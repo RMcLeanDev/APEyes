@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 
 function Menu(){
   const Div = styled.div`
-    position: absolute;
+    position: fixed;
+    top 50px;
     width: 300px;
-    height: calc(100% - 50px);
+    height: 100vh;
     background-color: red;
   `
   return(
