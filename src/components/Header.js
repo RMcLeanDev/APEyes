@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
 import '../scss/styles.scss';
-import {connect} from 'react-redux';
 import SignIn from './SignIn'
 import {withFirebase} from '../Firebase';
 import Account from './Account';
@@ -63,4 +62,4 @@ function Header(props){
   )
 }
 
-export default connect()(Header)
+export default Header

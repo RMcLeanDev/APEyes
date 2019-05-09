@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import * as ROUTES from '../constants/Routes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import {connect} from 'react-redux';
+import firebase from 'firebase/app';
 
 function SignIn(props){
-  let uid;
+
   const [errorMessage, setError] = useState(null)
 
   const Login = styled.div`
@@ -47,10 +49,8 @@ function SignIn(props){
 
   function signIn(e){
     e.preventDefault();
-  }
-  function test(){
-    props.firebase.doSignInWithEmailAndPassword('none@none.com', 'password').then(authUser => {
-      props.firebase.currentUser();
+      firebase.auth().signInWithEmailAndPassword("none@none.com", "password").then(user => {
+      console.log(firebase.auth().currentUser);
     }).catch(error => {
       console.log(error.message);
       setError(error.message);
@@ -58,7 +58,6 @@ function SignIn(props){
   }
   return(
     <Login>
-    <p onClick={test}>test</p>
       <p className="exit" onClick={props.closeLogin}>&#10005;</p>
       <form onSubmit={signIn}>
         <input type="text" placeholder="email"/>
@@ -72,4 +71,4 @@ function SignIn(props){
   )
 }
 
-export default SignIn
+export default connect()(SignIn)

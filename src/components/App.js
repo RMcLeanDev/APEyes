@@ -8,8 +8,9 @@ import { Switch, Route } from 'react-router-dom';
 import GiphyAPI from './GiphyAPI';
 import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
-import {withFirebase} from '../Firebase';
-const SignUpPage = withFirebase(SignUp);
+import {connect} from 'react-redux';
+import firebase from 'firebase/app';
+
 
 class App extends React.Component {
   constructor(props){
@@ -43,7 +44,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path={ROUTES.HOME} component={Home} />
           <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
-          <Route exact path={ROUTES.SIGN_UP} component={SignUpPage}/>
+          <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
           <Route component={Error404}/>
         </Switch>
       </div>
@@ -51,4 +52,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  authUser: state.sessionState
+})
+
+export default connect(mapStateToProps)(App);

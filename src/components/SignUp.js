@@ -1,6 +1,7 @@
 import React from 'react';
 import '../scss/styles.scss';
 import * as ROUTES from '../constants/Routes';
+import firebase from 'firebase/app';
 
 const INITIAL_STATE ={
   username: '',
@@ -24,7 +25,7 @@ class SignUp extends React.Component{
 
   onSubmit = event => {
     const {username, email, passwordOne} = this.state;
-    this.props.firebase.doCreateUserWithEmailAndPassword(email, passwordOne, username).then(authUser => {
+    firebase.auth().createUserWithEmailAndPassword(email, passwordOne).then(authUser => {
       this.setState({...INITIAL_STATE});
       this.props.history.push(ROUTES.HOME)
     }).catch(error => {

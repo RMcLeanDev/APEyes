@@ -11,30 +11,25 @@ const firebaseConfig = {
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 };
 
-class Firebase {
+class Firebase{
   constructor(){
     firebase.initializeApp(firebaseConfig)
-    this.auth = firebase.auth();
-    this.dv = firebase.database();
   }
-
-  doCreateUserWithEmailAndPassword = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password);
-
-  doSignInWithEmailAndPassword = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
 
   doSignOut = () => this.auth.signOut();
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
-  currentUser = (props) => this.auth.onAuthStateChanged(function(user) {
+  currentUser(){
+
+    this.auth.onAuthStateChanged(function(user) {
     if (user){
       console.log(user)
+      return user
     } else {
       console.log("NOPE")
     }
-  })
+  })};
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
