@@ -41,13 +41,17 @@ function SignIn(props){
       }
     }
   `
+
+  function signIn(e){
+    e.preventDefault();
+  }
   return(
     <Login>
       <p className="exit" onClick={props.closeLogin}>&#10005;</p>
-      <form>
+      <form onSubmit={signIn}>
         <input type="text" placeholder="email"/>
         <input type="password" placeholder="password"/>
-        <button>Sign In</button>
+        <button type="submit">Sign In</button>
         <hr/>
         <p>Don&#39;t have a account? <br/><Link to={ROUTES.SIGN_UP}>Make one here.</Link></p>
       </form>
