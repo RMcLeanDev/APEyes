@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props)
     this.state={
       menu: false,
-      menuView: "horizontal"
+      menuView: "vertical"
     }
     this.menuToggle = this.menuToggle.bind(this)
     this.menuVerticalView = this.menuVerticalView.bind(this)
