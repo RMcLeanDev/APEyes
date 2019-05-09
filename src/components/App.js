@@ -6,6 +6,8 @@ import Home from './Home';
 import Menu from './Menu';
 import { Switch, Route } from 'react-router-dom';
 import GiphyAPI from './GiphyAPI';
+import * as ROUTES from '../constants/Routes';
+import SignUp from './SignUp';
 
 class App extends React.Component {
   constructor(props){
@@ -38,6 +40,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/giphyApi' component={GiphyAPI} />
+          <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
           <Route component={Error404}/>
         </Switch>
       </div>

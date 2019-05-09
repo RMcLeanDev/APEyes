@@ -21,7 +21,8 @@ function Menu(props){
   return(
     <div className={information}>
       <p onClick={props.verticalView}>vertical</p><p onClick={props.horizontalView}>horizontal</p>
-      <p>this is the menu component</p>
+      <Link to={ROUTES.HOME}  onClick={props.closeMenu}>Home</Link>
+      <br/>
       <Link to={ROUTES.GIPHY_API} onClick={props.closeMenu}>GiphyAPI</Link>
     </div>
   )

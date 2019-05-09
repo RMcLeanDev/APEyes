@@ -1,12 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 import '../scss/styles.scss';
 import {connect} from 'react-redux';
-import * as ROUTES from '../constants/Routes';
+import SignIn from './SignIn'
 
 
 function Header(props){
+  const [displaySignIn, setSignIn] = useState(false)
+
   const Div = styled.div`
     width: 100%;
     background-color: lightgray;
@@ -28,13 +29,26 @@ function Header(props){
     .right{
       margin-right: 10px;
       text-decoration: none;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   `
+
+  let signIn;
+  if(displaySignIn === true){
+    signIn = <SignIn closeLogin={() => setSignIn(false)}/>
+  } else {
+    signIn = null;
+  }
+
   return(
     <Div>
       <p className="left" onClick={props.menuToggle}>logo shows menu</p>
       <input className="search" placeholder="Search"/>
-      <p className="right"><Link to={ROUTES.HOME}>sign in/ create a account</Link></p>
+      <p className="right" onClick={() => setSignIn(true)}>Login / create a account</p>
+      {signIn}
     </Div>
   )
 }
