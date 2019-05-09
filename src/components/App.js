@@ -10,7 +10,7 @@ import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
 import {connect} from 'react-redux';
 import firebase from 'firebase/app';
-
+import types from './../constants';
 
 class App extends React.Component {
   constructor(props){

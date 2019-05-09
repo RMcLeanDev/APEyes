@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import '../scss/styles.scss';
 import SignIn from './SignIn'
-import {withFirebase} from '../Firebase';
 import Account from './Account';
-const SignInModule = withFirebase(SignIn);
 
 function Header(props){
   console.log(props)
@@ -41,7 +39,7 @@ function Header(props){
   let signInOrAccount
 
   if(displaySignIn === true){
-    signIn = <SignInModule closeLogin={() => setSignIn(false)}/>
+    signIn = <SignIn closeLogin={() => setSignIn(false)}/>
   } else {
     signIn = null;
   }
