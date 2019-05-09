@@ -3,7 +3,6 @@ const {giphyState, types} = constants;
 
 const giphyReducer = (state = giphyState, action) => {
   let newState;
-  let newGifs;
   switch (action.type) {
     case types.TEST_FUNCTION:
       newState = state.slice()
