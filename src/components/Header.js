@@ -6,10 +6,7 @@ import {connect} from 'react-redux';
 import * as ROUTES from '../constants/Routes';
 
 
-function Header({dispatch}){
-  function testFirebase(){
-    console.log("hi")
-  }
+function Header(props){
   const Div = styled.div`
     width: 100%;
     background-color: lightgray;
@@ -35,7 +32,7 @@ function Header({dispatch}){
   `
   return(
     <Div>
-      <p className="left" onClick={testFirebase}>logo shows menu</p>
+      <p className="left" onClick={props.menuToggle}>logo shows menu</p>
       <input className="search" placeholder="Search"/>
       <p className="right"><Link to={ROUTES.HOME}>sign in/ create a account</Link></p>
     </Div>

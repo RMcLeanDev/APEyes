@@ -11,14 +11,30 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
-
+      menu: false,
+      menuView: "horizontal"
     }
+    this.menuToggle = this.menuToggle.bind(this)
+    this.menuVerticalView = this.menuVerticalView.bind(this)
+    this.menuHorizontalView = this.menuHorizontalView.bind(this)
+  }
+
+  menuToggle(){
+    this.setState(prevState => ({menu: !prevState.menu}))
+  }
+
+  menuVerticalView(){
+    this.setState({menuView: "vertical"})
+  }
+
+  menuHorizontalView(){
+    this.setState({menuView: "horizontal"})
   }
   render(){
     return (
       <div className="App">
-        <Header/>
-        <Menu/>
+        <Header menuToggle={this.menuToggle} />
+        <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/giphyApi' component={GiphyAPI} />
