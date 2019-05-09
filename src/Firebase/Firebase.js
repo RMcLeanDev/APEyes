@@ -28,6 +28,14 @@ class Firebase {
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
+  currentUser = (props) => this.auth.onAuthStateChanged(function(user) {
+    if (user){
+      console.log(user)
+    } else {
+      console.log("NOPE")
+    }
+  })
+
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
 

@@ -3,9 +3,12 @@ import styled from 'styled-components'
 import '../scss/styles.scss';
 import {connect} from 'react-redux';
 import SignIn from './SignIn'
-
+import {withFirebase} from '../Firebase';
+import Account from './Account';
+const SignInModule = withFirebase(SignIn);
 
 function Header(props){
+  console.log(props)
   const [displaySignIn, setSignIn] = useState(false)
 
   const Div = styled.div`
@@ -35,20 +38,27 @@ function Header(props){
       }
     }
   `
-
   let signIn;
+  let signInOrAccount
+
   if(displaySignIn === true){
-    signIn = <SignIn closeLogin={() => setSignIn(false)}/>
+    signIn = <SignInModule closeLogin={() => setSignIn(false)}/>
   } else {
     signIn = null;
+  }
+
+  if(props.authUser === null){
+    signInOrAccount = <div><p className="right" onClick={() => setSignIn(true)}>Login / create a account</p>
+    {signIn}</div>
+  } else {
+    signInOrAccount = <Account className="right"/>
   }
 
   return(
     <Div>
       <p className="left" onClick={props.menuToggle}>logo shows menu</p>
       <input className="search" placeholder="Search"/>
-      <p className="right" onClick={() => setSignIn(true)}>Login / create a account</p>
-      {signIn}
+      {signInOrAccount}
     </Div>
   )
 }

@@ -8,13 +8,16 @@ import { Switch, Route } from 'react-router-dom';
 import GiphyAPI from './GiphyAPI';
 import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
+import {withFirebase} from '../Firebase';
+const SignUpPage = withFirebase(SignUp);
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
       menu: false,
-      menuView: "vertical"
+      menuView: "vertical",
+      authUser: null
     }
     this.menuToggle = this.menuToggle.bind(this)
     this.menuVerticalView = this.menuVerticalView.bind(this)
@@ -35,12 +38,12 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <Header menuToggle={this.menuToggle} />
+        <Header authUser={this.state.authUser} menuToggle={this.menuToggle} />
         <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/giphyApi' component={GiphyAPI} />
-          <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
+          <Route exact path={ROUTES.HOME} component={Home} />
+          <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
+          <Route exact path={ROUTES.SIGN_UP} component={SignUpPage}/>
           <Route component={Error404}/>
         </Switch>
       </div>

@@ -1,1 +1,15 @@
 @import 'mediaQuery.scss';
+
+.form{
+  display: grid;
+  justify-content: center;
+  input{
+    width: 200px;
+    margin-top: 10px;
+  }
+  button{
+    width: 100px;
+    justify-self: center;
+    margin-top: 10px;
+  }
+}

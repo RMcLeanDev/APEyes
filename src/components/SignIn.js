@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import * as ROUTES from '../constants/Routes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 function SignIn(props){
+  let uid;
+  const [errorMessage, setError] = useState(null)
+
   const Login = styled.div`
     position: absolute;
     background-color: white;
@@ -45,16 +48,26 @@ function SignIn(props){
   function signIn(e){
     e.preventDefault();
   }
+  function test(){
+    props.firebase.doSignInWithEmailAndPassword('none@none.com', 'password').then(authUser => {
+      props.firebase.currentUser();
+    }).catch(error => {
+      console.log(error.message);
+      setError(error.message);
+    })
+  }
   return(
     <Login>
+    <p onClick={test}>test</p>
       <p className="exit" onClick={props.closeLogin}>&#10005;</p>
       <form onSubmit={signIn}>
         <input type="text" placeholder="email"/>
         <input type="password" placeholder="password"/>
         <button type="submit">Sign In</button>
         <hr/>
-        <p>Don&#39;t have a account? <br/><Link to={ROUTES.SIGN_UP}>Make one here.</Link></p>
+        <p>Don&#39;t have a account? <br/><Link to={ROUTES.SIGN_UP} onClick={props.closeLogin}>Make one here.</Link></p>
       </form>
+      {errorMessage}
     </Login>
   )
 }

@@ -15,11 +15,11 @@ const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMi
 const render = (Component) => {
   ReactDOM.render(
     <HashRouter>
-      <FirebaseContext.Provider value={new Firebase()}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <FirebaseContext.Provider value={new Firebase()}>
           <Component />
+          </FirebaseContext.Provider>
         </Provider>
-      </FirebaseContext.Provider>
     </HashRouter>,
     document.getElementById('root')
   );
