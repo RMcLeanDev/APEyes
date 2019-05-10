@@ -1,5 +1,4 @@
 import * as types from './../constants/ActionTypes';
-import firebase from 'firebase/app'
 
 export const testFunction = () => ({
   type: types.TEST_FUNCTION

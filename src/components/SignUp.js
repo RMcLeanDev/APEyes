@@ -1,7 +1,8 @@
 import React from 'react';
 import '../scss/styles.scss';
 import * as ROUTES from '../constants/Routes';
-import firebase from 'firebase/app';
+import {createUser} from './../actions';
+import {connect} from 'react-redux';
 
 const INITIAL_STATE ={
   username: '',
@@ -23,17 +24,16 @@ class SignUp extends React.Component{
     this.setState({[event.target.name]: event.target.value});
   }
 
-  onSubmit = event => {
+  onSubmit(e){
     const {username, email, passwordOne} = this.state;
-    firebase.auth().createUserWithEmailAndPassword(email, passwordOne).then(authUser => {
+    console.log("hi").then(authUser => {
       this.setState({...INITIAL_STATE});
       this.props.history.push(ROUTES.HOME)
     }).catch(error => {
       this.setState({error})
     })
-    event.preventDefault();
+    e.preventDefault();
   }
-
   render(){
     const {
       username,
@@ -86,4 +86,4 @@ class SignUp extends React.Component{
   }
 }
 
-export default SignUp;
+export default connect()(SignUp);

@@ -89,7 +89,7 @@ const GiphyAPI = ({dispatch, gif}) => {
 
 const mapStateToProps = state => {
   return {
-    gif: state.giphyState
+    gif: state
   }
 }
 export default connect(mapStateToProps)(GiphyAPI);
