@@ -1,5 +1,5 @@
 import constants from './../constants';
-const {firebaseState, types} = constants
+const {firebaseState, types, authState} = constants
 
 const firebaseReducer = (state = firebaseState, action) => {
   let newState;
@@ -7,10 +7,6 @@ const firebaseReducer = (state = firebaseState, action) => {
     case types.TEST_FUNCTION:
       newState = state
       console.log("firebase Reducer")
-      return newState;
-    case types.AUTH_USER:
-      newState = state;
-        newState = true;
       return newState;
     case types.RECIEVE_MESSAGE:
       newState = Object.assign({}, state);

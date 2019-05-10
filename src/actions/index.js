@@ -10,16 +10,17 @@ let database = firebase.database()
 let auth = firebase.auth()
 let user = firebase.auth().currentUser;
 
-firebase.auth().onAuthStateChanged(function(user){
-  if (user) {
-    database.ref('messages').on('value', function(snapshot) {
-      console.log(snapshot.val())
-    })
-    console.log(user.uid)
-  }else {
-    console.log("no user")
+export function watchUser(){
+  return function (dispatch){
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        dispatch(authUserTrue());
+      } else {
+        // No user is signed in.
+      }
+    });
   }
-})
+}
 
 export function watchMessages(){
   return function(dispatch){

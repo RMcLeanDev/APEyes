@@ -27,8 +27,9 @@ class App extends React.Component {
 
   componentWillMount(){
     const {dispatch} = this.props;
-    const {watchMessages} = actions;
+    const {watchMessages, watchUser} = actions;
     dispatch(watchMessages())
+    dispatch(watchUser())
   }
   menuToggle(){
     this.setState(prevState => ({menu: !prevState.menu}))
