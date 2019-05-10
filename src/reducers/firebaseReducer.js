@@ -1,7 +1,7 @@
 import constants from './../constants';
-const {authState, types} = constants
+const {firebaseState, types} = constants
 
-const firebaseReducer = (state = authState, action) => {
+const firebaseReducer = (state = firebaseState, action) => {
   let newState;
   switch (action.type) {
     case types.TEST_FUNCTION:

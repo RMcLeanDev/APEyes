@@ -17,7 +17,8 @@ class App extends React.Component {
     this.state={
       menu: false,
       menuView: "vertical",
-      authUser: null
+      authUser: null,
+      messages: []
     }
     this.menuToggle = this.menuToggle.bind(this)
     this.menuVerticalView = this.menuVerticalView.bind(this)
@@ -45,6 +46,11 @@ class App extends React.Component {
       <div className="App">
         <Header authUser={this.state.authUser} menuToggle={this.menuToggle} />
         <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
+        {Object.keys(this.props.messages).map(message => {
+            let currentMessage = this.props.messages[message]
+            console.log(message)
+            return <h1>{currentMessage.id}</h1>
+          })}
         <Switch>
           <Route exact path={ROUTES.HOME} component={Home} />
           <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
@@ -57,7 +63,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  authUser: state.sessionState
+  authUser: state.sessionState,
+  messages: state.firebaseState
 })
 
 export default connect(mapStateToProps)(App);
