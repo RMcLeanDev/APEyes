@@ -1,7 +1,7 @@
 import React from 'react';
 import '../scss/styles.scss';
 import * as ROUTES from '../constants/Routes';
-import {testFunction} from './../actions';
+import {addNewUser} from './../actions';
 import {connect} from 'react-redux';
 import {store} from './../index'
 
@@ -28,12 +28,9 @@ class SignUp extends React.Component{
   createUser = event => {
     event.preventDefault();
     const {username, email, passwordOne} = this.state;
-    store.dispatch(testFunction()).then(authUser => {
-      this.setState({...INITIAL_STATE});
-      this.props.history.push(ROUTES.HOME)
-    }).catch(error => {
-      this.setState({error})
-    })
+    store.dispatch(addNewUser({email, passwordOne}))
+    this.setState({...INITIAL_STATE});
+    this.props.history.push(ROUTES.HOME)
   }
 
   render(){

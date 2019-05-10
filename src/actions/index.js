@@ -1,6 +1,18 @@
-import * as types from './../constants/ActionTypes';
-console.log(types)
+import constants from './../constants';
+import * as firebase from 'firebase/app';
+import "firebase/auth";
+const {types, firebaseConfig} = constants;
 
+firebase.initializeApp(firebaseConfig);
+
+export function addNewUser(account){
+  console.log(account)
+  firebase.auth().createUserWithEmailAndPassword(account.email, account.passwordOne).catch(function(error){
+    if(error){
+      return error;
+    };
+  })
+}
 export const testFunction = () => ({
   type: types.TEST_FUNCTION
 })
