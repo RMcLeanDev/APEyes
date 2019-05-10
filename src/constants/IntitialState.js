@@ -1,3 +1,5 @@
+export const userLoggedIn =[];
+export const sessionState = null;
 export const giphyState = [{url: null, title: "", id: 1}];
 export const initialState = {
   person: {

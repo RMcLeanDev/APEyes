@@ -7,6 +7,7 @@ function GiphyList(props) {
     const {dispatch} = props;
     dispatch(testFunction())
   }
+  /* eslint-disable */
   return(
     <div>
       <h1>{props.title}</h1>
@@ -14,5 +15,6 @@ function GiphyList(props) {
       <button onClick={test}>hello</button>
     </div>
   )
+  /* eslint-enable */ 
 }
 export default connect()(GiphyList);

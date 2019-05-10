@@ -1,10 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 import '../scss/styles.scss';
-import {connect} from 'react-redux';
+import SignIn from './SignIn'
+import Account from './Account';
 
-function Header({dispatch}){
+function Header(props){
+  console.log(props)
+  const [displaySignIn, setSignIn] = useState(false)
+
   const Div = styled.div`
     width: 100%;
     background-color: lightgray;
@@ -26,15 +29,35 @@ function Header({dispatch}){
     .right{
       margin-right: 10px;
       text-decoration: none;
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   `
+  let signIn;
+  let signInOrAccount
+
+  if(displaySignIn === true){
+    signIn = <SignIn closeLogin={() => setSignIn(false)}/>
+  } else {
+    signIn = null;
+  }
+
+  if(props.authUser === null){
+    signInOrAccount = <div><p className="right" onClick={() => setSignIn(true)}>Login / create a account</p>
+    {signIn}</div>
+  } else {
+    signInOrAccount = <Account className="right"/>
+  }
+
   return(
     <Div>
-      <p className="left">logo shows menu</p>
+      <p className="left" onClick={props.menuToggle}>logo shows menu</p>
       <input className="search" placeholder="Search"/>
-      <p className="right"><Link to='/'>sign in/ create a account</Link></p>
+      {signInOrAccount}
     </Div>
   )
 }
 
-export default connect()(Header)
+export default Header

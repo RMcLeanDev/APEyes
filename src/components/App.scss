@@ -32,3 +32,76 @@
     transform: rotate(360deg);
   }
 }
+
+.menuVer{
+  transition: .5s linear;
+  position: fixed;
+  overflow: hidden;
+  height: 100vh;
+  background-color: black;
+}
+.showVer {
+  width: 300px;
+  a{
+    color: white;
+    text-decoration: none;
+    padding-top: 10px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p{
+    color: white;
+    &:hover{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.hideVer {
+  width: 0px;
+  a{
+    display: none;
+  }
+  p{
+    display: none;
+  }
+}
+
+.menuHor{
+  transition: .5s linear;
+  position: sticky;
+  top: 50px;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.showHor{
+  background-color: black;
+  padding-bottom: 20px;
+  a{
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p{
+    color: white;
+    margin-left: 10px;
+    &:hover{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.hideHor{
+  a{
+    display: none;
+  }
+  p{
+    display: none;
+  }
+}

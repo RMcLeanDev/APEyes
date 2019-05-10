@@ -1,12 +1,15 @@
 import constants from './../constants';
+import firebase from 'firebase/app';
 const {giphyState, types} = constants;
 
 const giphyReducer = (state = giphyState, action) => {
   let newState;
-  let newGifs;
   switch (action.type) {
     case types.TEST_FUNCTION:
       newState = state.slice()
+      firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user.uid)
+      })
       console.log("hhhhhh")
       return newState;
     case types.INITIAL_GIFS:

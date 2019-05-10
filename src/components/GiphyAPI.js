@@ -54,7 +54,9 @@ const GiphyAPI = ({dispatch, gif}) => {
         loadMore={loadFunc}
         hasMore={hasMore}
         loader={<div key={0}>Loading ...</div>}
-        > {Object.keys(gif).map(gifInfo => {
+        >
+        {/* eslint-disable */}
+        {Object.keys(gif).map(gifInfo => {
           let currentGif = gif[gifInfo];
           if (currentGif.url != null){
             return <GiphyList
@@ -63,6 +65,7 @@ const GiphyAPI = ({dispatch, gif}) => {
               key={currentGif.id}/>
           }
         })}
+        {/* eslint-enable */}
         </InfiniteScroll>
   } else {
     display = null;
@@ -86,7 +89,7 @@ const GiphyAPI = ({dispatch, gif}) => {
 
 const mapStateToProps = state => {
   return {
-    gif: state
+    gif: state.giphyState
   }
 }
 export default connect(mapStateToProps)(GiphyAPI);
