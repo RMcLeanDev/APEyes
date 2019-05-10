@@ -5,7 +5,6 @@ import SignIn from './SignIn'
 import Account from './Account';
 
 function Header(props){
-  console.log(props)
   const [displaySignIn, setSignIn] = useState(false)
 
   const Div = styled.div`
