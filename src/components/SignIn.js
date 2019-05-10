@@ -52,12 +52,7 @@ function SignIn(props){
   function signIn(event) {
     event.preventDefault();
     const {dispatch} = props
-      dispatch(logIn(_email.value, _password.value)).then(error => {
-      if(error.message){
-        return setError(error.message)
-      }
-      props.closeLogin()
-    })
+      dispatch(logIn(_email.value, _password.value))
   }
   return(
     <Login>

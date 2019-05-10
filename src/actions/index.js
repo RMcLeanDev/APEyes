@@ -2,6 +2,7 @@ import constants from './../constants';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 import "firebase/database"
+import {store} from './../index'
 const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
@@ -10,17 +11,16 @@ let database = firebase.database()
 let auth = firebase.auth()
 let user = firebase.auth().currentUser;
 
-export function watchUser(){
-  return function (dispatch){
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        dispatch(authUserTrue());
-      } else {
-        // No user is signed in.
-      }
-    });
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    store.dispatch(authUserTrue());
+    console.log("YES")
+  } else {
+    store.dispatch(authUserFalse());
+    console.log("NO")
   }
-}
+});
+
 
 export function watchMessages(){
   return function(dispatch){
@@ -39,6 +39,11 @@ function recieveMessage(messageFromFirebase){
     message: messageFromFirebase
   }
 }
+
+export function signOut(){
+    return () => auth.signOut()
+}
+
 export function addNewUser(account){
   return () => auth.createUserWithEmailAndPassword(account.email, account.passwordOne).then(update => {
     console.log(update)
@@ -52,12 +57,14 @@ export function addNewUser(account){
   })
 }
 export function logIn(email, password){
+  console.log(email, password)
   return () => auth.signInWithEmailAndPassword(email, password).catch(function(error){
     if(error){
       return error
     }
   })
 }
+
 export const testFunction = () => ({
   type: types.TEST_FUNCTION
 })
@@ -93,6 +100,10 @@ export function moreGifs(info, num){
 
 export const authUserTrue = () => ({
   type: types.AUTH_USER
+})
+
+export const authUserFalse = () => ({
+  type: types.AUTH_FALSE
 })
 
 export const initialGifs = (info) => ({

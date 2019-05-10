@@ -18,7 +18,6 @@ class App extends React.Component {
       menu: false,
       menuView: "vertical",
       authUser: null,
-      messages: []
     }
     this.menuToggle = this.menuToggle.bind(this)
     this.menuVerticalView = this.menuVerticalView.bind(this)
@@ -27,9 +26,8 @@ class App extends React.Component {
 
   componentWillMount(){
     const {dispatch} = this.props;
-    const {watchMessages, watchUser} = actions;
+    const {watchMessages} = actions;
     dispatch(watchMessages())
-    dispatch(watchUser())
   }
   menuToggle(){
     this.setState(prevState => ({menu: !prevState.menu}))
@@ -45,12 +43,12 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <Header authUser={this.state.authUser} menuToggle={this.menuToggle} />
+        <Header authUser={this.props.authUser} menuToggle={this.menuToggle} />
         <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
         {Object.keys(this.props.messages).map(message => {
             let currentMessage = this.props.messages[message]
             console.log(message)
-            return <h1>{currentMessage.id}</h1>
+            return <h1>{currentMessage.original}</h1>
           })}
         <Switch>
           <Route exact path={ROUTES.HOME} component={Home} />
@@ -65,7 +63,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   authUser: state.sessionState,
-  messages: state.firebaseState
+  messages: state.firebaseState,
+  authUser: state.authState
 })
 
 export default connect(mapStateToProps)(App);

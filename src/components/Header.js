@@ -43,9 +43,12 @@ function Header(props){
     signIn = null;
   }
 
-  if(props.authUser === null){
-    signInOrAccount = <div><p className="right" onClick={() => setSignIn(true)}>Login / create a account</p>
-    {signIn}</div>
+  if(props.authUser === false){
+    signInOrAccount =
+    <div>
+      <p className="right" onClick={() => setSignIn(true)}>Login / create a account</p>
+      {signIn}
+    </div>
   } else {
     signInOrAccount = <Account className="right"/>
   }
