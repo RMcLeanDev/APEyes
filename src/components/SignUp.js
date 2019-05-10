@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {store} from './../index';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
+import "firebase/database"
 
 const INITIAL_STATE ={
   username: '',
@@ -35,6 +36,9 @@ class SignUp extends React.Component{
       firebase.auth().currentUser.updateProfile({displayName: username})
       this.setState({...INITIAL_STATE});
       this.props.history.push(ROUTES.HOME)
+    }).then(database => {
+      let user = firebase.auth().currentUser
+      firebase.database().ref('users').child(user.uid).set({name: username, email: email})
     }).catch(error => {
       this.setState({error})
     })
