@@ -1,14 +1,9 @@
 import constants from './../constants';
-import firebase from 'firebase/app';
 const {giphyState, types} = constants;
 
 const giphyReducer = (state = giphyState, action) => {
   let newState;
   switch (action.type) {
-    case types.TEST_FUNCTION:
-      newState = state.slice()
-      console.log(firebase)
-      return newState;
     case types.INITIAL_GIFS:
       newState = state.slice();
       newState = newState.splice(0, -1)

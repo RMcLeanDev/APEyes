@@ -1,4 +1,5 @@
 import * as types from './../constants/ActionTypes';
+console.log(types)
 
 export const testFunction = () => ({
   type: types.TEST_FUNCTION

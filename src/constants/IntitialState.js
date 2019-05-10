@@ -1,13 +1,2 @@
 export const giphyState = [{url: null, title: "", id: 1}];
-export const initialState = {
-  person: {
-    1: {
-      name: 'me',
-      age: 3,
-    },
-    2: {
-      name: 'you',
-      age: 3,
-    }
-  }
-}
+export const initialState = [{name: "ryan"}]

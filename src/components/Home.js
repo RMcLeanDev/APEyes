@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
+import {testFunction} from './../actions';
+import {connect} from 'react-redux';
 
-function Home(){
+function Home({dispatch}){
+
+  function tester(){
+    console.log("start")
+    dispatch(testFunction())
+    console.log("end")
+  }
   const Something = styled.h1`
   @keyframes pulse {
     0%{color: hotpink}
@@ -19,8 +27,9 @@ function Home(){
   return(
     <div>
       <Something>Welcome to the home component</Something>
+      <button onClick={tester}>click me</button>
     </div>
   )
 }
 
-export default Home
+export default connect()(Home)
