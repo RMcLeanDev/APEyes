@@ -5,11 +5,18 @@ const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().onAuthStateChanged(function(user){
+  if (user) {
+    console.log(user.uid)
+  }else {
+    console.log("no user")
+  }
+})
 export function addNewUser(account){
   console.log(account)
-  firebase.auth().createUserWithEmailAndPassword(account.email, account.passwordOne).catch(function(error){
+  return () => firebase.auth().createUserWithEmailAndPassword(account.email, account.passwordOne).catch(function(error){
     if(error){
-      return error;
+      return error
     };
   })
 }
