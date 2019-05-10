@@ -6,9 +6,7 @@ import {connect} from 'react-redux';
 function Home({dispatch}){
 
   function tester(){
-    console.log("start")
     dispatch(testFunction())
-    console.log("end")
   }
   const Something = styled.h1`
   @keyframes pulse {

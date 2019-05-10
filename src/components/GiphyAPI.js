@@ -32,7 +32,6 @@ const GiphyAPI = ({dispatch, gif}) => {
     setInformation(false);
     setMore(false);
     if (_input.value === ''){
-      console.log("no")
       return setAlert('You have to type something in!')
     }
     setLoad("Loading...")

@@ -32,7 +32,6 @@ class SignUp extends React.Component{
     event.preventDefault();
     const {username, email, passwordOne} = this.state;
     firebase.auth().createUserWithEmailAndPassword(email, passwordOne).then(update => {
-      console.log(update)
       firebase.auth().currentUser.updateProfile({displayName: username})
       this.setState({...INITIAL_STATE});
       this.props.history.push(ROUTES.HOME)

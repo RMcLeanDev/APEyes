@@ -14,10 +14,8 @@ let user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     store.dispatch(authUserTrue());
-    console.log("YES")
   } else {
     store.dispatch(authUserFalse());
-    console.log("NO")
   }
 });
 
@@ -72,7 +70,6 @@ export function moreGifs(info, num){
     ).then(function(json) {
       dispatch(addGif(json))
       a = a + 10;
-      console.log(a)
     })
   }
 }
