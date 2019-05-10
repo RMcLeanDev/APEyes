@@ -3,9 +3,11 @@ import * as ROUTES from '../constants/Routes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import {connect} from 'react-redux';
-import firebase from 'firebase/app';
+import {logIn} from './../actions';
 
 function SignIn(props){
+  let _email = ''
+  let _password = ''
 
   const [errorMessage, setError] = useState(null)
 
@@ -47,21 +49,28 @@ function SignIn(props){
     }
   `
 
-  function signIn(e){
-    e.preventDefault();
-      firebase.auth().signInWithEmailAndPassword("none@none.com", "password").then(user => {
-      console.log(firebase.auth().currentUser);
-    }).catch(error => {
-      console.log(error.message);
-      setError(error.message);
+  function signIn(event) {
+    event.preventDefault();
+    const {dispatch} = props
+      dispatch(logIn(_email.value, _password.value)).then(error => {
+      if(error.message){
+        return setError(error.message)
+      }
+      props.closeLogin()
     })
   }
   return(
     <Login>
       <p className="exit" onClick={props.closeLogin}>&#10005;</p>
       <form onSubmit={signIn}>
-        <input type="text" placeholder="email"/>
-        <input type="password" placeholder="password"/>
+        <input
+          type="text"
+          placeholder="email"
+          ref={(input) => {_email = input;}}/>
+        <input
+          type="password"
+          placeholder="password"
+          ref={(input) => {_password = input;}}/>
         <button type="submit">Sign In</button>
         <hr/>
         <p>Don&#39;t have a account? <br/><Link to={ROUTES.SIGN_UP} onClick={props.closeLogin}>Make one here.</Link></p>

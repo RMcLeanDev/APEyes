@@ -29,12 +29,12 @@ class SignUp extends React.Component{
     event.preventDefault();
     const {username, email, passwordOne} = this.state;
     store.dispatch(addNewUser({email, passwordOne, username})).then(error => {
-      if(error){
-        let message = error.message;
+      if(error.message){
         return this.setState({error})
+      } else {
+        this.setState({...INITIAL_STATE});
+        this.props.history.push(ROUTES.HOME)
       }
-      this.setState({...INITIAL_STATE});
-      this.props.history.push(ROUTES.HOME)
     })
   }
 

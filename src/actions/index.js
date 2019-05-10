@@ -12,12 +12,20 @@ firebase.auth().onAuthStateChanged(function(user){
     console.log("no user")
   }
 })
+
 export function addNewUser(account){
   console.log(account)
   return () => firebase.auth().createUserWithEmailAndPassword(account.email, account.passwordOne).catch(function(error){
     if(error){
       return error
     };
+  })
+}
+export function logIn(email, password){
+  return () => firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+    if(error){
+      return error
+    }
   })
 }
 export const testFunction = () => ({
