@@ -4,7 +4,7 @@ import firebaseReducer from './firebaseReducer';
 
 const rootReducer = combineReducers({
   giphyState: giphyReducer,
-  firebaseState: firebaseReducer
+  messageState: firebaseReducer
 });
 
 export default rootReducer;

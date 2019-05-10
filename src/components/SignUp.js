@@ -29,7 +29,7 @@ class SignUp extends React.Component{
     event.preventDefault();
     const {username, email, passwordOne} = this.state;
     store.dispatch(addNewUser({email, passwordOne, username})).then(error => {
-      if(error.message){
+      if(error){
         return this.setState({error})
       } else {
         this.setState({...INITIAL_STATE});

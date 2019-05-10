@@ -1,28 +1,57 @@
 import constants from './../constants';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
+import "firebase/database"
 const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
 
+let database = firebase.database()
+let auth = firebase.auth()
+let user = firebase.auth().currentUser;
+
 firebase.auth().onAuthStateChanged(function(user){
   if (user) {
+    database.ref('messages').on('value', function(snapshot) {
+      console.log(snapshot.val())
+    })
     console.log(user.uid)
   }else {
     console.log("no user")
   }
 })
 
+export function watchMessages(){
+  return function(dispatch){
+    database.ref('messages').on('child_added', data => {
+      const newMessage = Object.assign({}, data.val(), {
+        id: data.key,
+      })
+      dispatch(recieveMessage(newMessage))
+    })
+  }
+}
+
+function recieveMessage(messageFromFirebase){
+  return {
+    type: types.RECIEVE_MESSAGE,
+    message: messageFromFirebase
+  }
+}
 export function addNewUser(account){
-  console.log(account)
-  return () => firebase.auth().createUserWithEmailAndPassword(account.email, account.passwordOne).catch(function(error){
+  return () => auth.createUserWithEmailAndPassword(account.email, account.passwordOne).then(update => {
+    console.log(update)
+    firebase.auth().currentUser.updateProfile({
+      displayName: account.username
+    })
+  }).catch(function(error){
     if(error){
       return error
-    };
+    }
   })
 }
 export function logIn(email, password){
-  return () => firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+  return () => auth.signInWithEmailAndPassword(email, password).catch(function(error){
     if(error){
       return error
     }
@@ -60,6 +89,10 @@ export function moreGifs(info, num){
     })
   }
 }
+
+export const authUserTrue = () => ({
+  type: types.AUTH_USER
+})
 
 export const initialGifs = (info) => ({
   type: types.INITIAL_GIFS,

@@ -9,6 +9,7 @@ import GiphyAPI from './GiphyAPI';
 import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
 import {connect} from 'react-redux';
+import * as actions from './../actions';
 
 class App extends React.Component {
   constructor(props){
@@ -23,6 +24,11 @@ class App extends React.Component {
     this.menuHorizontalView = this.menuHorizontalView.bind(this)
   }
 
+  componentWillMount(){
+    const {dispatch} = this.props;
+    const {watchMessages} = actions;
+    dispatch(watchMessages())
+  }
   menuToggle(){
     this.setState(prevState => ({menu: !prevState.menu}))
   }
