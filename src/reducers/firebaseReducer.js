@@ -1,5 +1,5 @@
 import constants from './../constants';
-const {firebaseState, types, authState} = constants
+const {firebaseState, types} = constants
 
 const firebaseReducer = (state = firebaseState, action) => {
   let newState;

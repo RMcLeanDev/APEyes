@@ -51,18 +51,13 @@ export function addNewUser(account){
       displayName: account.username
     })
   }).catch(function(error){
-    if(error){
-      return error
-    }
-  })
+    return error;
+  });
 }
-export function logIn(email, password){
-  console.log(email, password)
-  return () => auth.signInWithEmailAndPassword(email, password).catch(function(error){
-    if(error){
-      return error
-    }
-  })
+export function logIn(user){
+  return () => auth.signInWithEmailAndPassword(user.email, user.password).catch(function(error){
+    return error;
+  });
 }
 
 export const testFunction = () => ({
