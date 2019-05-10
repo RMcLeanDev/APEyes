@@ -24,7 +24,7 @@ class SignUp extends React.Component{
     this.setState({[event.target.name]: event.target.value});
   }
 
-  onSubmit(e){
+  onSubmit = event => {
     const {username, email, passwordOne} = this.state;
     console.log("hi").then(authUser => {
       this.setState({...INITIAL_STATE});
@@ -32,7 +32,7 @@ class SignUp extends React.Component{
     }).catch(error => {
       this.setState({error})
     })
-    e.preventDefault();
+    event.preventDefault();
   }
   render(){
     const {
