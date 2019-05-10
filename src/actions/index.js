@@ -44,22 +44,6 @@ export function signOut(){
     return () => auth.signOut()
 }
 
-export function addNewUser(account){
-  return () => auth.createUserWithEmailAndPassword(account.email, account.passwordOne).then(update => {
-    console.log(update)
-    firebase.auth().currentUser.updateProfile({
-      displayName: account.username
-    })
-  }).catch(function(error){
-    return error;
-  });
-}
-export function logIn(user){
-  return () => auth.signInWithEmailAndPassword(user.email, user.password).catch(function(error){
-    return error;
-  });
-}
-
 export const testFunction = () => ({
   type: types.TEST_FUNCTION
 })

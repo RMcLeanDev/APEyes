@@ -3,7 +3,9 @@ import '../scss/styles.scss';
 import * as ROUTES from '../constants/Routes';
 import {addNewUser} from './../actions';
 import {connect} from 'react-redux';
-import {store} from './../index'
+import {store} from './../index';
+import * as firebase from 'firebase/app';
+import "firebase/auth";
 
 const INITIAL_STATE ={
   username: '',
@@ -28,13 +30,13 @@ class SignUp extends React.Component{
   createUser = event => {
     event.preventDefault();
     const {username, email, passwordOne} = this.state;
-    store.dispatch(addNewUser({email, passwordOne, username})).then(error => {
-      if(error){
-        return this.setState({error})
-      } else {
-        this.setState({...INITIAL_STATE});
-        this.props.history.push(ROUTES.HOME)
-      }
+    firebase.auth().createUserWithEmailAndPassword(email, passwordOne).then(update => {
+      console.log(update)
+      firebase.auth().currentUser.updateProfile({displayName: username})
+      this.setState({...INITIAL_STATE});
+      this.props.history.push(ROUTES.HOME)
+    }).catch(error => {
+      this.setState({error})
     })
   }
 

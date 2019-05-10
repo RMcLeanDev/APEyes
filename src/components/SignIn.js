@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import {connect} from 'react-redux';
 import {logIn} from './../actions';
+import * as firebase from 'firebase/app';
+import "firebase/auth";
 
 function SignIn(props){
   let _email = ''
@@ -52,7 +54,7 @@ function SignIn(props){
   function signIn(event) {
     event.preventDefault();
     const {dispatch} = props
-      dispatch(logIn({email: _email.value, password: _password.value})).then(error => {
+      firebase.auth().signInWithEmailAndPassword(_email.value, _password.value).catch(function(error){
         setError(error.message)
       })
   }
