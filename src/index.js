@@ -10,7 +10,7 @@ import middlewareLogger from './middleware/middleware-logger';
 import thunkMiddleware from 'redux-thunk';
 
 const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
-
+export {store};
 const render = (Component) => {
   ReactDOM.render(
     <HashRouter>

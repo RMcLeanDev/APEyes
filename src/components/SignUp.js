@@ -1,8 +1,9 @@
 import React from 'react';
 import '../scss/styles.scss';
 import * as ROUTES from '../constants/Routes';
-import {createUser} from './../actions';
+import {testFunction} from './../actions';
 import {connect} from 'react-redux';
+import {store} from './../index'
 
 const INITIAL_STATE ={
   username: '',
@@ -24,16 +25,17 @@ class SignUp extends React.Component{
     this.setState({[event.target.name]: event.target.value});
   }
 
-  onSubmit = event => {
+  createUser = event => {
+    event.preventDefault();
     const {username, email, passwordOne} = this.state;
-    console.log("hi").then(authUser => {
+    store.dispatch(testFunction()).then(authUser => {
       this.setState({...INITIAL_STATE});
       this.props.history.push(ROUTES.HOME)
     }).catch(error => {
       this.setState({error})
     })
-    event.preventDefault();
   }
+
   render(){
     const {
       username,
@@ -52,7 +54,7 @@ class SignUp extends React.Component{
     return(
       <div>
       <h1>Create your new account</h1>
-      <form className="form" onSubmit={this.onSubmit}>
+      <form className="form" onSubmit={this.createUser}>
         <input
           name='username'
           value={username}
