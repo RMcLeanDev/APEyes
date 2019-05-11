@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {signOut} from './../actions';
 
-function Account({dispatch}){
+function Account(props){
   function logout(){
+    const {dispatch} = props
     dispatch(signOut());
   }
   return (

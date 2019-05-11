@@ -1,9 +1,7 @@
 import React from 'react';
 import '../scss/styles.scss';
 import * as ROUTES from '../constants/Routes';
-import {addNewUser} from './../actions';
 import {connect} from 'react-redux';
-import {store} from './../index';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 import "firebase/database"

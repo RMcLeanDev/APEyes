@@ -11,13 +11,13 @@ import SignUp from './SignUp';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
 
+/* eslint-disable */
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
       menu: false,
       menuView: "vertical",
-      authUser: null,
     }
     this.menuToggle = this.menuToggle.bind(this)
     this.menuVerticalView = this.menuVerticalView.bind(this)
@@ -47,8 +47,7 @@ class App extends React.Component {
         <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
         {Object.keys(this.props.messages).map(message => {
             let currentMessage = this.props.messages[message]
-            console.log(message)
-            return <h1>{currentMessage.original}</h1>
+            return <h1 key={currentMessage.id}>{currentMessage.original}</h1>
           })}
         <Switch>
           <Route exact path={ROUTES.HOME} component={Home} />
@@ -68,3 +67,4 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(App);
+/* eslint-enable */

@@ -3,7 +3,6 @@ import * as ROUTES from '../constants/Routes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import {connect} from 'react-redux';
-import {logIn} from './../actions';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 
@@ -53,7 +52,6 @@ function SignIn(props){
 
   function signIn(event) {
     event.preventDefault();
-    const {dispatch} = props
       firebase.auth().signInWithEmailAndPassword(_email.value, _password.value).catch(function(error){
         setError(error.message)
       })

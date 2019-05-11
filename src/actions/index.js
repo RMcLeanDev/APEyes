@@ -9,7 +9,6 @@ firebase.initializeApp(firebaseConfig);
 
 let database = firebase.database()
 let auth = firebase.auth()
-let user = firebase.auth().currentUser;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
