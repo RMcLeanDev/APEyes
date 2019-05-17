@@ -12,6 +12,23 @@ let auth = firebase.auth()
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    let fn;
+    let fm;
+    let initials;
+    let name = auth.currentUser.displayName.split(' ')
+    if (name[0] && name[1]){
+      fn = name[0].charAt(0)
+      fm = name[1].charAt(0)
+      initials = fn + fm;
+    } else if(name[0]){
+      fn = name[0].charAt(0)
+      initials = fn
+    }
+    if(initials){
+      store.dispatch(setUserInfo({user, initials}));
+    } else {
+      store.dispatch(setUserInfo({user}));
+    }
     store.dispatch(authUserTrue());
   } else {
     store.dispatch(authUserFalse());
@@ -43,6 +60,11 @@ export function signOut(){
 
 export const testFunction = () => ({
   type: types.TEST_FUNCTION
+})
+
+export const setUserInfo = (info) => ({
+  type: types.SET_USER_INFO,
+  info
 })
 
 let a;
@@ -78,7 +100,7 @@ export const authUserTrue = () => ({
 })
 
 export const authUserFalse = () => ({
-  type: types.AUTH_FALSE
+  type: types.AUTH_FALSE,
 })
 
 export const initialGifs = (info) => ({

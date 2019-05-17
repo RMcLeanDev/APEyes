@@ -10,7 +10,6 @@ const giphyReducer = (state = giphyState, action) => {
       action.info.data.forEach(function(el) {
         newState.push(el);
       })
-      console.log(newState)
       return newState;
     case types.ADD_GIFS:
       newState = [];

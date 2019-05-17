@@ -50,7 +50,7 @@ function Header(props){
       {signIn}
     </div>
   } else {
-    signInOrAccount = <Account className="right"/>
+    signInOrAccount = <Account/>
   }
 
   return(
