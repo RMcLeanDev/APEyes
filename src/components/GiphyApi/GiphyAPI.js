@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux';
-import {getGif, moreGifs} from './../actions';
+import {getGif, moreGifs} from './../../actions';
 import GiphyList from './GiphyList';
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -52,7 +52,7 @@ const GiphyAPI = ({dispatch, gif}) => {
         pageStart={0}
         loadMore={loadFunc}
         hasMore={hasMore}
-        loader={<div key={0}><img className="loading" src={require('../assets/circle-loading-gif.gif')}></img></div>}
+        loader={<div key={0}><img className="loading" src={require('../../assets/circle-loading-gif.gif')}></img></div>}
         useWindow={false}
         >
         {Object.keys(gif).map(gifInfo => {

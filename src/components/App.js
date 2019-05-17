@@ -5,12 +5,12 @@ import Header from './Header';
 import Home from './Home';
 import Menu from './Menu';
 import { Switch, Route } from 'react-router-dom';
-import GiphyAPI from './GiphyAPI';
+import GiphyAPI from './GiphyApi/GiphyAPI';
 import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
-import PokeApi from './PokeApi';
+import PokeApi from './PokemonApi/PokeApi';
 
 /* eslint-disable */
 class App extends React.Component {
