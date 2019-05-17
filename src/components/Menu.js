@@ -20,9 +20,10 @@ function Menu(props){
   }
   return(
     <div className={information}>
-      <p onClick={props.verticalView}>vertical</p><p onClick={props.horizontalView}>horizontal</p>
-      <Link to={ROUTES.HOME}  onClick={props.closeMenu}>Home</Link>
-      <br/>
+      <div className="top">
+        <p onClick={props.verticalView}>vertical</p><p onClick={props.horizontalView}>horizontal</p>
+      </div>
+      <p><Link to={ROUTES.HOME}  onClick={props.closeMenu}>Home</Link></p>
       <Link to={ROUTES.GIPHY_API} onClick={props.closeMenu}>GiphyAPI</Link>
     </div>
   )

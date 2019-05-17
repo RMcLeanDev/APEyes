@@ -39,13 +39,17 @@
   overflow: hidden;
   height: 100vh;
   background-color: black;
+  .top{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 .showVer {
   width: 300px;
   a{
     color: white;
     text-decoration: none;
-    padding-top: 10px;
     &:hover {
       text-decoration: underline;
     }
@@ -76,6 +80,9 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  .top{
+    display: flex;
+  }
 }
 .showHor{
   background-color: black;
