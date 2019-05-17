@@ -13,7 +13,7 @@ const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMi
 export {store};
 /* eslint-disable */
 let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
+  store.getState()
 );
 /* eslint-enable */
 const render = (Component) => {

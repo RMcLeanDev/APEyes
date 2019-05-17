@@ -1,4 +1,5 @@
 @import 'mediaQuery.scss';
+@import 'giphy.scss';
 
 .form{
   display: grid;
@@ -12,4 +13,9 @@
     justify-self: center;
     margin-top: 10px;
   }
+}
+
+.loading{
+  width: 50px;
+  height: 50px;
 }

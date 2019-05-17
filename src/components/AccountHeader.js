@@ -58,7 +58,7 @@ function AccountHeader(props){
   } else {
     dropDown = null
   }
-  console.log(props)
+  // console.log(props)
   return (
     <Div>
       <h1 onClick={() => setMenu(true)}>{props.user.initials}</h1>

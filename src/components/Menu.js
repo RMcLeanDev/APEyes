@@ -24,7 +24,8 @@ function Menu(props){
         <p onClick={props.verticalView}>vertical</p><p onClick={props.horizontalView}>horizontal</p>
       </div>
       <p><Link to={ROUTES.HOME}  onClick={props.closeMenu}>Home</Link></p>
-      <Link to={ROUTES.GIPHY_API} onClick={props.closeMenu}>GiphyAPI</Link>
+      <p><Link to={ROUTES.GIPHY_API} onClick={props.closeMenu}>GiphyAPI</Link></p>
+      <p><Link to={ROUTES.POKE_API} onClick={props.closeMenu}>Pokemon Api</Link></p>
     </div>
   )
 }

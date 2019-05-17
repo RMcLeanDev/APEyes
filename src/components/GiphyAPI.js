@@ -43,7 +43,7 @@ const GiphyAPI = ({dispatch, gif}) => {
       setLoad(null);
     }, 1000)
   }
-
+  /* eslint-disable */
   if(information === true){
     setTimeout(() => {
       setMore(true || false);
@@ -52,9 +52,9 @@ const GiphyAPI = ({dispatch, gif}) => {
         pageStart={0}
         loadMore={loadFunc}
         hasMore={hasMore}
-        loader={<div key={0}>Loading ...</div>}
+        loader={<div key={0}><img className="loading" src={require('../assets/circle-loading-gif.gif')}></img></div>}
+        useWindow={false}
         >
-        {/* eslint-disable */}
         {Object.keys(gif).map(gifInfo => {
           let currentGif = gif[gifInfo];
           if (currentGif.url != null){
@@ -74,14 +74,17 @@ const GiphyAPI = ({dispatch, gif}) => {
   return(
     <div>
       <h1>GiphyAPI</h1>
-      <form onSubmit={searchGiphy}>
-        <input
-        ref={value => {_input = value}}/>
-        <button type='submit'>Search</button>
-      </form>
-      {alertMessage}
-      {loading}
-      {display}
+      <div className="giphyExample">
+        <h1>Example</h1>
+        <form onSubmit={searchGiphy}>
+          <input
+          ref={value => {_input = value}}/>
+          <button type='submit'>Search</button>
+        </form>
+        {alertMessage}
+        {loading}
+        {display}
+      </div>
     </div>
   )
 }

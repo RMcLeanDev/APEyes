@@ -11,7 +11,7 @@ const userReducer = (state = initialState, action) => {
         } else {
           newState = {name: action.info.user.displayName, email: action.info.user.email}
         }
-      console.log(newState)
+      // console.log(newState)
       return newState;
     default:
       return state;

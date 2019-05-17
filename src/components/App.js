@@ -10,6 +10,7 @@ import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
+import PokeApi from './PokeApi';
 
 /* eslint-disable */
 class App extends React.Component {
@@ -45,14 +46,11 @@ class App extends React.Component {
       <div className="App">
         <Header authUser={this.props.authUser} menuToggle={this.menuToggle} />
         <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
-        {Object.keys(this.props.messages).map(message => {
-            let currentMessage = this.props.messages[message]
-            return <h1 key={currentMessage.id}>{currentMessage.original}</h1>
-          })}
         <Switch>
           <Route exact path={ROUTES.HOME} component={Home} />
           <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
           <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
+          <Route exact path={ROUTES.POKE_API} component={PokeApi}/>
           <Route component={Error404}/>
         </Switch>
       </div>
