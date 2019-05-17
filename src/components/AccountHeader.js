@@ -14,7 +14,6 @@ function AccountHeader(props){
     display: grid;
     align-self: center;
     margin-right: 20px;
-    background-color: red;
     border-radius: 50px;
     height: 40px;
     width: 60px;
@@ -23,6 +22,9 @@ function AccountHeader(props){
       margin: 0;
       padding: 0;
       font-size: 25px;
+      &:hover{
+        cursor: pointer;
+      }
     }
     .dropdown{
       p{
@@ -61,7 +63,7 @@ function AccountHeader(props){
   // console.log(props)
   return (
     <Div>
-      <h1 onClick={() => setMenu(true)}>{props.user.initials}</h1>
+      <h1 onClick={() => setMenu(!menu)}>{props.user.initials}&#9947;</h1>
       {dropDown}
     </Div>
   )
