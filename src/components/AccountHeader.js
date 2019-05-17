@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import {signOut} from './../actions';
 import styled from 'styled-components'
 
-function Account(props){
+function AccountHeader(props){
   function logout(){
     const {dispatch} = props
     dispatch(signOut());
   }
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(true);
 
   const Div = styled.div`
     display: grid;
@@ -25,6 +25,10 @@ function Account(props){
       font-size: 25px;
     }
     .dropdown{
+      p{
+        margin: 0;
+        padding: 0;
+      }
       border: 1px solid red;
       position: absolute;
       top: 50px;
@@ -34,6 +38,8 @@ function Account(props){
   if (menu){
     dropDown =  <div className="dropdown">
                   <p>menu</p>
+                  <hr/>
+                  <p>{props.user.name}</p>
                   <button onClick={logout}>sign out</button>
                 </div>
   } else {
@@ -53,4 +59,4 @@ const mapStateToProps = state => {
     user: state.userState
   }
 }
-export default connect(mapStateToProps)(Account)
+export default connect(mapStateToProps)(AccountHeader)

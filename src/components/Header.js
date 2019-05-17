@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import '../scss/styles.scss';
 import SignIn from './SignIn'
-import Account from './Account';
+import AccountHeader from './AccountHeader';
 
 function Header(props){
   const [displaySignIn, setSignIn] = useState(false)
@@ -50,7 +50,7 @@ function Header(props){
       {signIn}
     </div>
   } else {
-    signInOrAccount = <Account/>
+    signInOrAccount = <AccountHeader/>
   }
 
   return(
