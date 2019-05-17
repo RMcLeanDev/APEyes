@@ -48,7 +48,7 @@ _[] clean ui interface_
 
 _[] 3-4 api's with examples_
 
-_[] firebase authentication_
+_[X] firebase authentication_
 
 _[] firebase storage_
 
@@ -58,7 +58,7 @@ _[] better doctor_
 
 _[] pokemon_
 
-_[] giphy_
+_[X] giphy_
 ## Known Bugs
 
 _as of 5/3/19 - none_
