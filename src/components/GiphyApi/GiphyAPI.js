@@ -16,7 +16,7 @@ const GiphyAPI = ({dispatch, gif}) => {
   const [information, setInformation] = useState(false)
   const [alertMessage, setAlert] = useState(null)
   const [loading, setLoad] = useState(null)
-  const [hasMore, setMore] = useState(false)
+  const [hasMoreStuff, setMore] = useState(false)
 
   function loadFunc(){
     let input = _input.value;
@@ -51,7 +51,7 @@ const GiphyAPI = ({dispatch, gif}) => {
     display = <InfiniteScroll
         pageStart={0}
         loadMore={loadFunc}
-        hasMore={hasMore}
+        hasMore={hasMoreStuff}
         loader={<div key={0}><img className="loading" src={require('../../assets/circle-loading-gif.gif')}></img></div>}
         useWindow={false}
         >
