@@ -28,13 +28,13 @@ function HearthstoneApi(props){
     thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneCards())}>Get All Cards</button>
   } else if (search === "singleCardSearch"){
     thisSearch = <form onSubmit={searchSingleCard}>
-        <input placeholder="card search"
+        <input placeholder="Search Card"
                ref={value => {_input = value}}/>
         <button>search</button>
       </form>
   } else if (search === "cardSetSearch"){
     thisSearch = <form onSubmit={searchCardSet}>
-        <input placeholder="card set search"
+        <input placeholder="Search by Set"
                ref={value => {_input = value}}/>
         <button>search</button>
       </form>
@@ -49,7 +49,14 @@ function HearthstoneApi(props){
         <option value="infoSearch">Patch Notes</option>
         <option value="allCardsSearch">All Cards</option>
         <option value="singleCardSearch">Search for Single Card</option>
-        <option value="cardSetSearch">Search for Card Set</option>
+        <option value="cardSetSearch">Search by Set</option>
+        no <option value="cardClassSearch">Search by Class</option>
+        no <option value="cardRaceSearch">Search by Race</option>
+        no <option value="cardQualitySearch">Search by Quality</option>
+        no <option value="cardTypeSearch">Search by Type</option>
+        no <option value="cardFactionSearch">Search by Faction</option>
+        no <option value="cardSearchSearch">Search by Search</option>
+        no <option value="cardBacksSearch">Search by Backs</option>
       </select>
       <br/>
       {thisSearch}
