@@ -9,6 +9,7 @@ function PokeApi(){
         <li>search by pokemon</li>
         <li>search by type</li>
         <li>search by abilty</li>
+        
       </ul>
     </div>
   )
