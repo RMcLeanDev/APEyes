@@ -69,6 +69,18 @@ export const setUserInfo = (info) => ({
 
 let a;
 
+export function getAllHearthstoneInfo(){
+  var unirest = require('unirest');
+  return dispatch => {
+    unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/info")
+    .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
+    .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
+    .then(function (json) {
+    console.log(json.body);
+    });
+  }
+}
+
 export function getAllHearthstoneCards(){
   var unirest = require('unirest');
   return dispatch => {
