@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import HearthstoneList from './HearthstoneList';
 import {store} from '../../index';
 import {connect} from 'react-redux';
-import {getAllHearthstoneInfo, getAllHearthstoneCards, getSingleHearthstoneCard, getHearthstoneCardSet} from './../../actions/hearthstoneActions';
+import {getAllInfo, getAllCards, getSingleCard, getCardSet, getCardsByClass, getCardsByRace, getCardsByQuality, getCardsByType, getCardsByFaction, generalSearch, cardbacks} from './../../actions/hearthstoneActions';
 
 function HearthstoneApi(props){
   const [search, setSearch] = useState(false);
@@ -13,19 +13,19 @@ function HearthstoneApi(props){
 
   function searchSingleCard(e){
     e.preventDefault();
-    store.dispatch(getSingleHearthstoneCard(_input.value))
+    store.dispatch(getSingleCard(_input.value))
   }
 
   function searchCardSet(e){
     e.preventDefault();
-    store.dispatch(getHearthstoneCardSet(_input.value))
+    store.dispatch(getCardSet(_input.value))
   }
 
   let thisSearch;
   if(search === "infoSearch"){
-    thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneInfo())}>Get Info</button>
+    thisSearch = <button onClick={() => store.dispatch(getAllInfo())}>Get Info</button>
   } else if (search === "allCardsSearch"){
-    thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneCards())}>Get All Cards</button>
+    thisSearch = <button onClick={() => store.dispatch(getAllCards())}>Get All Cards</button>
   } else if (search === "singleCardSearch"){
     thisSearch = <form onSubmit={searchSingleCard}>
         <input placeholder="Search Card"
@@ -55,7 +55,7 @@ function HearthstoneApi(props){
         no <option value="cardQualitySearch">Search by Quality</option>
         no <option value="cardTypeSearch">Search by Type</option>
         no <option value="cardFactionSearch">Search by Faction</option>
-        no <option value="cardSearchSearch">Search by Search</option>
+        no <option value="cardSearch">General Search</option>
         no <option value="cardBacksSearch">Search by Backs</option>
       </select>
       <br/>
