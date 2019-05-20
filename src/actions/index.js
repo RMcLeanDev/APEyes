@@ -2,7 +2,6 @@ import constants from './../constants';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 import "firebase/database";
-import axios from 'axios';
 import {store} from './../index';
 const {types, firebaseConfig} = constants;
 
@@ -70,10 +69,10 @@ export const setUserInfo = (info) => ({
 
 let a;
 
-export function getHearthstoneCards(){
+export function getAllHearthstoneCards(){
   var unirest = require('unirest');
   return dispatch => {
-    unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/info")
+    unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards")
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
     .then(function (json) {

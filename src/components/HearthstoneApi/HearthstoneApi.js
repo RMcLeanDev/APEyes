@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HearthstoneList from './HearthstoneList';
 import {connect} from 'react-redux';
-import {getHearthstoneCards} from './../../actions';
+import {getAllHearthstoneCards} from './../../actions';
 
 function HearthstoneApi({dispatch}){
+  const [search, setSearch] = useState('info');
+
   function getCards(){
-    dispatch(getHearthstoneCards())
+    dispatch(getAllHearthstoneCards())
+  }
+  let thisSearch;
+  if(search === "info"){
+    thisSearch = <button>Get Info</button>
   }
   return(
     <div>
