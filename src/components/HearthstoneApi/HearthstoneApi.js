@@ -1,26 +1,32 @@
 import React, {useState} from 'react';
 import HearthstoneList from './HearthstoneList';
+import {store} from '../../index';
 import {connect} from 'react-redux';
-import {getAllHearthstoneInfo, getAllHearthstoneCards} from './../../actions';
+import {getAllHearthstoneInfo, getAllHearthstoneCards, getSingleHearthstoneCard} from './../../actions';
 
-function HearthstoneApi({dispatch}){
+function HearthstoneApi(props){
   const [search, setSearch] = useState(false);
+  let _input = null;
   function setSearchOption(event){
     setSearch(event.target.value);
   }
 
-  function getAllCards(){
-    dispatch(getAllHearthstoneCards())
+  function searchSingleCard(e){
+    e.preventDefault();
+    store.dispatch(getSingleHearthstoneCard(_input.value))
   }
-  function getInfo(){
-    setSearch('allCards')
-    dispatch(getAllHearthstoneInfo())
-  }
+
   let thisSearch;
   if(search === "info"){
-    thisSearch = <button onClick={getInfo}>Get Info</button>
+    thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneInfo())}>Get Info</button>
   } else if (search === "allCards"){
-    thisSearch = <button onClick={getAllCards}>Get All Cards</button>
+    thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneCards())}>Get All Cards</button>
+  } else if (search === "singleCard"){
+    thisSearch = <form onSubmit={searchSingleCard}>
+        <input placeholder="card search"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
   }
   return(
     <div>
@@ -30,7 +36,9 @@ function HearthstoneApi({dispatch}){
         <option>---Search---</option>
         <option value="info">Patch Notes</option>
         <option value="allCards">All Cards</option>
+        <option value="singleCard">Search For Single Card</option>
       </select>
+      <br/>
       {thisSearch}
       <HearthstoneList/>
     </div>

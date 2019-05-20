@@ -3,6 +3,7 @@ import * as firebase from 'firebase/app';
 import "firebase/auth";
 import "firebase/database";
 import {store} from './../index';
+var unirest = require('unirest');
 const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
@@ -70,7 +71,6 @@ export const setUserInfo = (info) => ({
 let a;
 
 export function getAllHearthstoneInfo(){
-  var unirest = require('unirest');
   return dispatch => {
     unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/info")
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
@@ -82,7 +82,6 @@ export function getAllHearthstoneInfo(){
 }
 
 export function getAllHearthstoneCards(){
-  var unirest = require('unirest');
   return dispatch => {
     unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards")
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
@@ -90,6 +89,21 @@ export function getAllHearthstoneCards(){
     .then(function (json) {
     console.log(json.body);
     });
+  }
+}
+
+export function getSingleHearthstoneCard(input){
+  console.log(input)
+  return dispatch => {
+    unirest.get(`https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${input}`)
+    .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
+    .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
+    .then(function (json) {
+    console.log(json.body);
+    if(json.body.error === 404){
+      return json.body.message;
+    }
+  });
   }
 }
 
