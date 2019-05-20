@@ -50,15 +50,15 @@ _[] 3-4 api's with examples_
 
 _[X] firebase authentication_
 
-_[] firebase storage_
+_[X] firebase storage_
 
 _API's_
 
 _[] better doctor_
 
-_[] pokemon_
+_[] Hearthstone_
 
-_[X] giphy_
+_[X] Giphy_
 ## Known Bugs
 
 _as of 5/3/19 - none_
