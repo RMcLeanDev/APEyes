@@ -45,4 +45,9 @@ function HearthstoneApi(props){
   )
 }
 
-export default connect()(HearthstoneApi);
+const mapStateToProps = state => {
+  return {
+    cards: state.hearthstoneState
+  }
+}
+export default connect(mapStateToProps)(HearthstoneApi);
