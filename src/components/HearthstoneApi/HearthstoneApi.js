@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import HearthstoneList from './HearthstoneList';
 import {store} from '../../index';
 import {connect} from 'react-redux';
-import {getAllHearthstoneInfo, getAllHearthstoneCards, getSingleHearthstoneCard, getHearthstoneCardSet} from './../../actions';
+import {getAllHearthstoneInfo, getAllHearthstoneCards, getSingleHearthstoneCard, getHearthstoneCardSet} from './../../actions/hearthstoneActions';
 
 function HearthstoneApi(props){
   const [search, setSearch] = useState(false);
