@@ -11,6 +11,7 @@ import SignUp from './SignUp';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
 import PokeApi from './PokemonApi/PokeApi';
+import HearthstoneApi from './HearthstoneApi/HearthstoneApi';
 
 /* eslint-disable */
 class App extends React.Component {
