@@ -56,7 +56,7 @@ _API's_
 
 _[] better doctor_
 
-_[] Hearthstone_
+_[1/2] Hearthstone_
 
 _[X] Giphy_
 ## Known Bugs
