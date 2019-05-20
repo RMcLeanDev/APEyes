@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 import * as actions from './../actions';
 import PokeApi from './PokemonApi/PokeApi';
 import HearthstoneApi from './HearthstoneApi/HearthstoneApi';
+import AllApis from './AllApis';
 
 /* eslint-disable */
 class App extends React.Component {
@@ -49,6 +50,7 @@ class App extends React.Component {
         <Menu menu={this.state.menu} closeMenu={this.menuToggle} verticalView={this.menuVerticalView} horizontalView={this.menuHorizontalView} menuRotation={this.state.menuView}/>
         <Switch>
           <Route exact path={ROUTES.HOME} component={Home} />
+          <Route exact path={ROUTES.ALL_APIS} component={AllApis}/>
           <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
           <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
           <Route exact path={ROUTES.POKE_API} component={PokeApi}/>
