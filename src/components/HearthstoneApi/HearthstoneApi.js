@@ -21,6 +21,36 @@ function HearthstoneApi(props){
     store.dispatch(getCardSet(_input.value))
   }
 
+  function searchClassSet(e){
+    e.preventDefault();
+    store.dispatch(getCardsByClass(_input.value))
+  }
+
+  function searchRaceSet(e){
+    e.preventDefault();
+    store.dispatch(getCardsByRace(_input.value))
+  }
+
+  function searchQualitySet(e){
+    e.preventDefault();
+    store.dispatch(getCardsByQuality(_input.value))
+  }
+
+  function searchTypeSet(e){
+    e.preventDefault();
+    store.dispatch(getCardsByType(_input.value))
+  }
+
+  function searchFactionSet(e){
+    e.preventDefault();
+    store.dispatch(getCardsByFaction(_input.value))
+  }
+
+  function searchCards(e){
+    e.preventDefault();
+    store.dispatch(generalSearch(_input.value))
+  }
+
   let thisSearch;
   if(search === "infoSearch"){
     thisSearch = <button onClick={() => store.dispatch(getAllInfo())}>Get Info</button>
@@ -38,6 +68,44 @@ function HearthstoneApi(props){
                ref={value => {_input = value}}/>
         <button>search</button>
       </form>
+  } else if (search === "cardClassSearch"){
+    thisSearch = <form onSubmit={searchClassSet}>
+        <input placeholder="Search by Class"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
+  } else if (search === "cardRaceSearch"){
+    thisSearch = <form onSubmit={searchRaceSet}>
+        <input placeholder="Search by Race"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
+  } else if (search === "cardQualitySearch"){
+    thisSearch = <form onSubmit={searchQualitySet}>
+        <input placeholder="Search by Quality"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
+  } else if (search === "cardTypeSearch"){
+    thisSearch = <form onSubmit={searchTypeSet}>
+        <input placeholder="Search by Type"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
+  } else if (search === "cardFactionSearch"){
+    thisSearch = <form onSubmit={searchFactionSet}>
+        <input placeholder="Search by Faction"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
+  } else if (search === "cardSearch"){
+    thisSearch = <form onSubmit={searchCards}>
+        <input placeholder="Search any cards"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
+  } else if (search === "cardBacksSearch"){
+    thisSearch = <button onClick={() => store.dispatch(cardbacks())}>See all avaliable cardbacks</button>
   }
 
   return(
@@ -50,13 +118,13 @@ function HearthstoneApi(props){
         <option value="allCardsSearch">All Cards</option>
         <option value="singleCardSearch">Search for Single Card</option>
         <option value="cardSetSearch">Search by Set</option>
-        no <option value="cardClassSearch">Search by Class</option>
-        no <option value="cardRaceSearch">Search by Race</option>
-        no <option value="cardQualitySearch">Search by Quality</option>
-        no <option value="cardTypeSearch">Search by Type</option>
-        no <option value="cardFactionSearch">Search by Faction</option>
-        no <option value="cardSearch">General Search</option>
-        no <option value="cardBacksSearch">Search by Backs</option>
+        <option value="cardClassSearch">Search by Class</option>
+        <option value="cardRaceSearch">Search by Race</option>
+        <option value="cardQualitySearch">Search by Quality</option>
+        <option value="cardTypeSearch">Search by Type</option>
+        <option value="cardFactionSearch">Search by Faction</option>
+        <option value="cardSearch">General Search</option>
+        <option value="cardBacksSearch">Search by Backs</option>
       </select>
       <br/>
       {thisSearch}

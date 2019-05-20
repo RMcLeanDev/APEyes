@@ -1,5 +1,4 @@
 import constants from './../constants';
-import {store} from './../index';
 let unirest = require('unirest');
 const {types} = constants;
 
