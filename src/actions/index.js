@@ -1,8 +1,9 @@
 import constants from './../constants';
 import * as firebase from 'firebase/app';
 import "firebase/auth";
-import "firebase/database"
-import {store} from './../index'
+import "firebase/database";
+import axios from 'axios';
+import {store} from './../index';
 const {types, firebaseConfig} = constants;
 
 firebase.initializeApp(firebaseConfig);
@@ -71,12 +72,14 @@ let a;
 
 export function getHearthstoneCards(){
   var unirest = require('unirest');
-  return unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/info")
-  .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
-  .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
-  .then(function (json) {
+  return dispatch => {
+    unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/info")
+    .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
+    .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
+    .then(function (json) {
     console.log(json.body);
-  });
+    });
+  }
 }
 
 export function getGif(info, num){

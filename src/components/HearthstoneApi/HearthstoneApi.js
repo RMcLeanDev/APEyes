@@ -1,11 +1,11 @@
 import React from 'react';
 import HearthstoneList from './HearthstoneList';
-import {store} from '../../index.js';
+import {connect} from 'react-redux';
 import {getHearthstoneCards} from './../../actions';
 
-function HearthstoneApi(){
+function HearthstoneApi({dispatch}){
   function getCards(){
-    store.dispatch(getHearthstoneCards())
+    dispatch(getHearthstoneCards())
   }
   return(
     <div>
@@ -16,4 +16,4 @@ function HearthstoneApi(){
   )
 }
 
-export default HearthstoneApi;
+export default connect()(HearthstoneApi);
