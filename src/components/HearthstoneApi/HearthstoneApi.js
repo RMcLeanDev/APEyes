@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import HearthstoneList from './HearthstoneList';
 import {store} from '../../index';
 import {connect} from 'react-redux';
-import {getAllHearthstoneInfo, getAllHearthstoneCards, getSingleHearthstoneCard} from './../../actions';
+import {getAllHearthstoneInfo, getAllHearthstoneCards, getSingleHearthstoneCard, getHearthstoneCardSet} from './../../actions';
 
 function HearthstoneApi(props){
   const [search, setSearch] = useState(false);
@@ -16,27 +16,40 @@ function HearthstoneApi(props){
     store.dispatch(getSingleHearthstoneCard(_input.value))
   }
 
+  function searchCardSet(e){
+    e.preventDefault();
+    store.dispatch(getHearthstoneCardSet(_input.value))
+  }
+
   let thisSearch;
-  if(search === "info"){
+  if(search === "infoSearch"){
     thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneInfo())}>Get Info</button>
-  } else if (search === "allCards"){
+  } else if (search === "allCardsSearch"){
     thisSearch = <button onClick={() => store.dispatch(getAllHearthstoneCards())}>Get All Cards</button>
-  } else if (search === "singleCard"){
+  } else if (search === "singleCardSearch"){
     thisSearch = <form onSubmit={searchSingleCard}>
         <input placeholder="card search"
                ref={value => {_input = value}}/>
         <button>search</button>
       </form>
+  } else if (search === "cardSetSearch"){
+    thisSearch = <form onSubmit={searchCardSet}>
+        <input placeholder="card set search"
+               ref={value => {_input = value}}/>
+        <button>search</button>
+      </form>
   }
+
   return(
     <div>
       <h1>Hearthstone</h1>
       <p>Search by</p>
       <select onChange={setSearchOption}>
         <option>---Search---</option>
-        <option value="info">Patch Notes</option>
-        <option value="allCards">All Cards</option>
-        <option value="singleCard">Search For Single Card</option>
+        <option value="infoSearch">Patch Notes</option>
+        <option value="allCardsSearch">All Cards</option>
+        <option value="singleCardSearch">Search for Single Card</option>
+        <option value="cardSetSearch">Search for Card Set</option>
       </select>
       <br/>
       {thisSearch}

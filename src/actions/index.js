@@ -93,16 +93,23 @@ export function getAllHearthstoneCards(){
 }
 
 export function getSingleHearthstoneCard(input){
-  console.log(input)
   return dispatch => {
     unirest.get(`https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/${input}`)
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
     .then(function (json) {
     console.log(json.body);
-    if(json.body.error === 404){
-      return json.body.message;
-    }
+  });
+  }
+}
+
+export function getHearthstoneCardSet(input){
+  return dispatch => {
+    unirest.get(`https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/${input}`)
+    .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
+    .header("X-RapidAPI-Key", process.env.HEARTHSTONE_API_KEY)
+    .then(function (json) {
+    console.log(json.body);
   });
   }
 }
