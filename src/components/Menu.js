@@ -26,6 +26,7 @@ function Menu(props){
       <p><Link to={ROUTES.HOME}  onClick={props.closeMenu}>Home</Link></p>
       <p><Link to={ROUTES.GIPHY_API} onClick={props.closeMenu}>GiphyAPI</Link></p>
       <p><Link to={ROUTES.POKE_API} onClick={props.closeMenu}>Pokemon Api</Link></p>
+      <p><Link to={ROUTES.HEARTHSTONE_API} onClick={props.closeMenu}>Hearthstone Api</Link></p>
     </div>
   )
 }
