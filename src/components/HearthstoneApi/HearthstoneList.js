@@ -1,12 +1,22 @@
 import React from 'react';
 
 function HearthstoneList(props){
-
+  let display;
   if (props.information.length !== 0){
     if(props.information.info){
-      console.log('info')
+      display = Object.keys(props.information.info).map(info => {
+        let currentInfo = props.information.info[info];
+        return <div key={info}><h1>{info}</h1><p>{currentInfo}</p></div>
+      })
     } else if(props.information.allCards){
-      console.log('allCards')
+      console.log(props.information.allCards)
+      display = Object.keys(props.information.allCards).map(info => {
+        let currentInfo = props.information.allCards[info];
+        return <div key={info}><h1>{info}</h1>{Object.keys(currentInfo).map(cards => {
+          let currentCard = currentInfo[cards];
+          return <div key={currentCard.cardId}><p>{currentCard.name}</p></div>
+        })}</div>
+      })
     } else if(props.information.singleCard){
       console.log('singleCard')
     } else if(props.information.cardSet){
@@ -29,7 +39,7 @@ function HearthstoneList(props){
   }
   return(
     <div>
-      <h1>List</h1>
+      {display}
     </div>
   )
 }

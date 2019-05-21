@@ -55,7 +55,7 @@ function Header(props){
 
   return(
     <Div>
-      <p className="left" onClick={props.menuToggle}>logo shows menu</p>
+      <p className="left" onClick={props.menuToggle}>logo shows</p>
       <input className="search" placeholder="Search"/>
       {signInOrAccount}
     </Div>
