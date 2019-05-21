@@ -14,7 +14,11 @@ export function getAllInfo(){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({info: json.body}));
+    }
     });
   }
 }
@@ -25,7 +29,11 @@ export function getAllCards(){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({allCards: json.body}));
+    }
     });
   }
 }
@@ -36,7 +44,11 @@ export function getSingleCard(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({singleCard: json.body}));
+    }
   });
   }
 }
@@ -47,7 +59,11 @@ export function getCardSet(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({cardSet: json.body}));
+    }
   });
   }
 }
@@ -58,7 +74,11 @@ export function getCardsByClass(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({cardClass: json.body}));
+    }
   });
   }
 }
@@ -69,7 +89,11 @@ export function getCardsByRace(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({cardRace: json.body}));
+    }
   });
   }
 }
@@ -80,7 +104,11 @@ export function getCardsByQuality(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+      dispatch(addInformation({cardQuality: json.body}));
+    }
   });
   }
 }
@@ -91,7 +119,11 @@ export function getCardsByType(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+      dispatch(addInformation({cardType: json.body}));
+    }
   });
   }
 }
@@ -102,7 +134,11 @@ export function getCardsByFaction(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({cardFaction: json.body}));
+    }
   });
   }
 }
@@ -113,7 +149,11 @@ export function generalSearch(input){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({generalSearch: json.body}));
+    }
   });
   }
 }
@@ -124,7 +164,11 @@ export function cardbacks(){
     .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPID_API_KEY)
     .then(function (json) {
-    dispatch(addInformation(json.body));
+    if(json.body.error){
+      dispatch(addInformation({error: json.body.message}))
+    } else {
+    dispatch(addInformation({cardbacks: json.body}));
+    }
   });
   }
 }
