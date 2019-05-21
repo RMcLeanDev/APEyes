@@ -4,9 +4,9 @@ const {hearthstoneCardsState, types} = constants;
 const hearthstoneReducer = (state = hearthstoneCardsState, action) => {
   let newState;
   switch (action.type) {
-    case types.TEST_FUNCTION:
-      newState = state
-      console.log("firebase Reducer")
+    case types.HEARTHSTONE_ADD_INFORMATION:
+      newState = state;
+      newState = action.info;
       return newState;
     default:
       return state;

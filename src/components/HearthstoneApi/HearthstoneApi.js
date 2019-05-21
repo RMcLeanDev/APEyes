@@ -7,6 +7,9 @@ import {getAllInfo, getAllCards, getSingleCard, getCardSet, getCardsByClass, get
 function HearthstoneApi(props){
   const [search, setSearch] = useState(false);
   let _input = null;
+
+  console.log(props.cards)
+
   function setSearchOption(event){
     setSearch(event.target.value);
   }
@@ -107,6 +110,7 @@ function HearthstoneApi(props){
   } else if (search === "cardBacksSearch"){
     thisSearch = <button onClick={() => store.dispatch(cardbacks())}>See all avaliable cardbacks</button>
   }
+  let num;
 
   return(
     <div>
@@ -114,7 +118,7 @@ function HearthstoneApi(props){
       <p>Search by</p>
       <select onChange={setSearchOption}>
         <option>---Search---</option>
-        <option value="infoSearch">Patch Notes</option>
+        <option value="infoSearch">General Information</option>
         <option value="allCardsSearch">All Cards</option>
         <option value="singleCardSearch">Search for Single Card</option>
         <option value="cardSetSearch">Search by Set</option>
@@ -128,6 +132,10 @@ function HearthstoneApi(props){
       </select>
       <br/>
       {thisSearch}
+      {Object.keys(props.cards).map(info => {
+        let currentInfo = props.cards[info];
+        return <div><h1>{info}</h1><p>{currentInfo.toString().replace(',', ', ')}</p></div>
+      })}
       <HearthstoneList/>
     </div>
   )
