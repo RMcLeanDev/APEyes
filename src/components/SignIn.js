@@ -15,7 +15,7 @@ function SignIn(props){
   const Login = styled.div`
     position: absolute;
     background-color: white;
-    right: 0;
+    right: 5px;
     top: 50px;
     width: 180px;
     border: 1px solid black;

@@ -8,7 +8,7 @@ function AccountHeader(props){
     const {dispatch} = props
     dispatch(signOut());
   }
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(true);
 
   const Div = styled.div`
     display: grid;
@@ -16,7 +16,7 @@ function AccountHeader(props){
     margin-right: 20px;
     border-radius: 50px;
     height: 40px;
-    width: 60px;
+    width: 80px;
     h1{
       align-self: center;
       margin: 0;
@@ -25,15 +25,24 @@ function AccountHeader(props){
       &:hover{
         cursor: pointer;
       }
+      img{
+        width: 18px;
+        height: 18px;
+        margin-left: 5px;
+      }
     }
     .dropdown{
+      background-color: white;
+      padding: 5px;
+      width: 100px;
+      border: 1px solid black;
+      position: absolute;
+      top: 50px;
+      margin-left: -15px
       p{
         margin: 0;
         padding: 0;
       }
-      border: 1px solid red;
-      position: absolute;
-      top: 50px;
       .menu{
         margin-top: 30px;
       }
@@ -52,9 +61,10 @@ function AccountHeader(props){
   if (menu){
     dropDown =  <div className="dropdown">
                   <p className="exit" onClick={() => setMenu(false)}>&#10005;</p>
-                  <p className="menu">menu</p>
-                  <hr/>
+                  <br/>
+                  <br/>
                   <p>{props.user.name}</p>
+                  <hr/>
                   <button onClick={logout}>sign out</button>
                 </div>
   } else {
@@ -63,7 +73,7 @@ function AccountHeader(props){
   // console.log(props)
   return (
     <Div>
-      <h1 onClick={() => setMenu(!menu)}>{props.user.initials}&#9947;</h1>
+      <h1 onClick={() => setMenu(!menu)}>{props.user.initials}<img src={require('../assets/dropdown.png')}/></h1>
       {dropDown}
     </Div>
   )
