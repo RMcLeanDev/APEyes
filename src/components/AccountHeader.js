@@ -8,7 +8,7 @@ function AccountHeader(props){
     const {dispatch} = props
     dispatch(signOut());
   }
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
 
   const Div = styled.div`
     display: grid;
@@ -16,7 +16,6 @@ function AccountHeader(props){
     margin-right: 20px;
     border-radius: 50px;
     height: 40px;
-    width: 80px;
     h1{
       align-self: center;
       margin: 0;
@@ -38,7 +37,7 @@ function AccountHeader(props){
       border: 1px solid black;
       position: absolute;
       top: 50px;
-      margin-left: -15px
+      margin-left: -35px
       p{
         margin: 0;
         padding: 0;
