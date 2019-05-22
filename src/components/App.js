@@ -10,7 +10,6 @@ import * as ROUTES from '../constants/Routes';
 import SignUp from './SignUp';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
-import PokeApi from './PokemonApi/PokeApi';
 import HearthstoneApi from './HearthstoneApi/HearthstoneApi';
 import AllApis from './AllApis';
 
@@ -53,7 +52,6 @@ class App extends React.Component {
           <Route exact path={ROUTES.ALL_APIS} component={AllApis}/>
           <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
           <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
-          <Route exact path={ROUTES.POKE_API} component={PokeApi}/>
           <Route exact path={ROUTES.HEARTHSTONE_API} component={HearthstoneApi}/>
           <Route component={Error404}/>
         </Switch>

@@ -9,12 +9,13 @@ function Header(props){
 
   const Div = styled.div`
     width: 100%;
-    background-color: lightgray;
+    background-color: #41b3a3;
     display: flex;
     height: 50px;
     justify-content: space-between;
     align-items: center;
     position: sticky;
+    border-bottom: 1px solid #41b3a3;
     top: 0;
     .left{
       margin-left: 10px;
@@ -56,7 +57,7 @@ function Header(props){
   return(
     <Div>
       <p className="left" onClick={props.menuToggle}>logo shows</p>
-      <input className="search" placeholder="Search"/>
+      <input className="search" placeholder="not working"/>
       {signInOrAccount}
     </Div>
   )
