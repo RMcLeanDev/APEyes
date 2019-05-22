@@ -35,7 +35,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-
 export function watchMessages(){
   return function(dispatch){
     database.ref('messages').on('child_added', data => {
