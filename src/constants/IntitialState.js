@@ -3,3 +3,4 @@ export const initialState = [];
 export const authState = false;
 export const firebaseState = [];
 export const hearthstoneCardsState = [];
+export const loveCalculatorState = [];

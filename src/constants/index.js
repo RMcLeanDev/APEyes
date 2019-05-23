@@ -1,5 +1,5 @@
 import * as types from './ActionTypes';
-import {initialState, giphyState, authState, firebaseState, hearthstoneCardsState} from './IntitialState';
+import {initialState, giphyState, authState, firebaseState, hearthstoneCardsState, loveCalculatorState} from './IntitialState';
 import firebaseConfig from './firebaseConfig';
 
 export default {
@@ -9,5 +9,6 @@ export default {
   initialState: initialState,
   giphyState: giphyState,
   authState: authState,
+  loveCalculatorState: loveCalculatorState,
   types: types,
 }

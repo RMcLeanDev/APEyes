@@ -17,7 +17,7 @@ export function getAllInfo(){
     if(json.body.error){
       dispatch(addInformation({error: json.body.message}))
     } else {
-    dispatch(addInformation({info: json.body}));
+      dispatch(addInformation({info: json.body}));
     }
     });
   }
