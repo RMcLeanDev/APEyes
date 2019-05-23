@@ -31,6 +31,7 @@ function AllApis(){
       <div className='imgs'>
         <Link to={ROUTES.GIPHY_API}><img src={require('../assets/apiimgs/giphyApiGif.gif')}/></Link>
         <Link to={ROUTES.HEARTHSTONE_API}><img src={require('../assets/apiimgs/hearthstone.jpg')}/></Link>
+        <Link to={ROUTES.LOVE_CALCULATOR}><img src={require('../assets/apiimgs/loveCalculator.jpg')}/></Link>
       </div>
     </Div>
   )
