@@ -4,7 +4,6 @@ import {getLoveCalculations} from './../../actions/loveCalculatorActions';
 import styled from 'styled-components'
 
 function LoveCalculator({dispatch, results}){
-
   let _name1 = null;
   let _name2 = null;
 
@@ -18,10 +17,9 @@ function LoveCalculator({dispatch, results}){
     }
   }
   `;
-
   let displayResults;
   let title;
-  if(results.error){
+  if(results.errors){
     displayResults = <h1>{results.error}</h1>
   } else if (results.percentage){
     if(results.percentage >= 0 && results.percentage <= 24){
