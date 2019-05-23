@@ -46,7 +46,7 @@ _[] custom logo_
 
 _[x] clean ui interface_
 
-_[] 3-4 api's with examples_
+_[x] 3-4 api's with examples_
 
 _[X] firebase authentication_
 
@@ -54,7 +54,7 @@ _[X] firebase storage_
 
 _API's_
 
-_[] Love Calculator_
+_[x] Love Calculator_
 
 _[1/2] Hearthstone_
 

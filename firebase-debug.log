@@ -1,0 +1,71 @@
+[debug] [2019-05-23T08:28:41.772Z] ----------------------------------------------------------------------
+[debug] [2019-05-23T08:28:41.775Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lilkg\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-05-23T08:28:41.775Z] CLI Version:   6.7.0
+[debug] [2019-05-23T08:28:41.775Z] Platform:      win32
+[debug] [2019-05-23T08:28:41.775Z] Node Version:  v10.15.3
+[debug] [2019-05-23T08:28:41.779Z] Time:          Thu May 23 2019 01:28:41 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-05-23T08:28:41.779Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-23T08:28:41.794Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-23T08:28:41.795Z] > authorizing via signed-in user
+[debug] [2019-05-23T08:28:41.795Z] [iam] checking project apeyes-project for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-05-23T08:28:41.797Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-05-23T08:28:41.798Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-05-23T08:28:42.011Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-23T08:28:42.020Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/apeyes-project:testIamPermissions  
+
+[debug] [2019-05-23T08:28:42.240Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-23T08:28:42.241Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/apeyes-project  
+ 
+[debug] [2019-05-23T08:28:42.511Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'apeyes-project'...
+[info] 
+[info] i  deploying database, hosting
+[info] i  database: checking rules syntax...
+[debug] [2019-05-23T08:28:42.521Z] >>> HTTP REQUEST PUT https://apeyes-project.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+
+[debug] [2019-05-23T08:28:42.916Z] <<< HTTP RESPONSE 200
+[info] +  database: rules syntax for database apeyes-project is valid
+[debug] [2019-05-23T08:28:42.921Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/apeyes-project/versions  
+
+[debug] [2019-05-23T08:28:43.903Z] <<< HTTP RESPONSE 200
+[info] i  hosting[apeyes-project]: beginning deploy...
+[info] i  hosting[apeyes-project]: found 19 files in build
+[debug] [2019-05-23T08:28:43.919Z] [hosting] hash cache [YnVpbGQ] load error: lines is not defined
+[debug] [2019-05-23T08:28:44.855Z] [hosting] hash cache [YnVpbGQ] stored for 19 files
+[debug] [2019-05-23T08:28:44.855Z] [hosting][hash queue][FINAL]
+[debug] [2019-05-23T08:28:44.855Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/apeyes-project/versions/afd447c1066c25d5:populateFiles  
+ <request body omitted>
+[debug] [2019-05-23T08:28:45.659Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-23T08:28:45.670Z] [hosting][populate queue][FINAL]
+[debug] [2019-05-23T08:28:45.670Z] [hosting] uploads queued: 12
+[debug] [2019-05-23T08:28:47.083Z] [uploadQueue] Retrying task 52fc9e1564ada574499a5d48dcfdf10ddd8d046c70cc3da99e32455e05b86cb5
+[debug] [2019-05-23T08:28:47.178Z] [uploadQueue] Retrying task 4972570ab53e9cbb39bef8ae96ab3cc202912b88d091b01f309dc9c06778a9c3
+[debug] [2019-05-23T08:28:47.294Z] [uploadQueue] Retrying task d193e0052ca4dd0dd38df43deb73ad9457209a84ec8417def782df8caf555bc3
+[debug] [2019-05-23T08:28:47.414Z] [uploadQueue] Retrying task 587193034529e5efd2f1591be7ca45329d7841b495a7adfcf808a82d4f551611
+[debug] [2019-05-23T08:28:50.789Z] [uploadQueue] Retrying task ba49f7b649ee10f76d4c2730a2389776a280f4119be4693dd67e7e032b3efea4
+[debug] [2019-05-23T08:28:50.834Z] [uploadQueue] Retrying task d1305723e724b7e8c6199b5136eb8334d8a1ee9f69629cd2b7e5b3cdb577e5a4
+[debug] [2019-05-23T08:28:50.856Z] [uploadQueue] Retrying task 2ef9f7ca3d4b6c1e2f6f2d9d3b341c0a42283bace446a0ddb8a7135814566b4a
+[debug] [2019-05-23T08:28:52.551Z] [uploadQueue] Retrying task 5e1208efcdfbb3265173ff5654c534fc855c121886f478564a29ab5ef23ab516
+[debug] [2019-05-23T08:28:53.867Z] [uploadQueue] Retrying task 2048df30c968ca1e48241906c9f68c45ea28295a0c0cdd2418b742332bb72c42
+[debug] [2019-05-23T08:28:54.641Z] [uploadQueue] Retrying task 40f0883496c2c91e8fc871227deffa361eeb2df2172dca3964ce3be938423a86
+[debug] [2019-05-23T08:28:56.694Z] [uploadQueue] Retrying task d77e6d95d6d128e48d306c8dc15de16e8050dac714628d7ff02a3ec6216c315a
+[debug] [2019-05-23T08:28:57.942Z] [uploadQueue] Retrying task 52fc9e1564ada574499a5d48dcfdf10ddd8d046c70cc3da99e32455e05b86cb5
+[debug] [2019-05-23T08:28:58.049Z] [uploadQueue] Retrying task 4972570ab53e9cbb39bef8ae96ab3cc202912b88d091b01f309dc9c06778a9c3
+[debug] [2019-05-23T08:28:59.111Z] [uploadQueue] Retrying task d193e0052ca4dd0dd38df43deb73ad9457209a84ec8417def782df8caf555bc3
+[debug] [2019-05-23T08:28:59.166Z] [uploadQueue] Retrying task 587193034529e5efd2f1591be7ca45329d7841b495a7adfcf808a82d4f551611
+[debug] [2019-05-23T08:28:59.915Z] [uploadQueue] Retrying task 4b6568b566ed692f0bcf1a776f0b157f0983aa36ded2d4a8f46683667a522cef
+[debug] [2019-05-23T08:29:00.886Z] [uploadQueue] Retrying task 2ef9f7ca3d4b6c1e2f6f2d9d3b341c0a42283bace446a0ddb8a7135814566b4a
+[debug] [2019-05-23T08:29:01.088Z] [uploadQueue] Retrying task ba49f7b649ee10f76d4c2730a2389776a280f4119be4693dd67e7e032b3efea4
+[debug] [2019-05-23T08:29:01.102Z] [uploadQueue] Retrying task d1305723e724b7e8c6199b5136eb8334d8a1ee9f69629cd2b7e5b3cdb577e5a4
+[debug] [2019-05-23T08:29:01.945Z] [uploadQueue] Retrying task 40f0883496c2c91e8fc871227deffa361eeb2df2172dca3964ce3be938423a86
+[debug] [2019-05-23T08:29:05.137Z] [uploadQueue] Retrying task 5e1208efcdfbb3265173ff5654c534fc855c121886f478564a29ab5ef23ab516
