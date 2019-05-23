@@ -8,25 +8,19 @@ function Home({dispatch}){
   function tester(){
     dispatch(testFunction())
   }
-  const Something = styled.h1`
-  @keyframes pulse {
-    0%{color: hotpink}
-    50%{color: limegreen}
-    100%{color: hotpink}
+  const Div = styled.div`
+  h1{
+    font-size: 100px;
   }
-    animation: pulse 1s linear infinite;
-    color: green;
-    &:hover {
-      cursor: pointer;
-      animation: none;
-      color: black;
+    img{
+      width: 100%;
     }
   `
   return(
-    <div>
-      <Something>Welcome to the home component</Something>
-      <button onClick={tester}>click me</button>
-    </div>
+    <Div>
+      <h1>APEyes</h1>
+      <img src={require('../assets/image1.png')}></img>
+    </Div>
   )
 }
 
