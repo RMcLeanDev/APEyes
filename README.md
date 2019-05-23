@@ -44,7 +44,7 @@ _None at the time_
 ## MVP
 _[] custom logo_
 
-_[] clean ui interface_
+_[x] clean ui interface_
 
 _[] 3-4 api's with examples_
 
@@ -54,14 +54,14 @@ _[X] firebase storage_
 
 _API's_
 
-_[] better doctor_
+_[] Love Calculator_
 
 _[1/2] Hearthstone_
 
 _[X] Giphy_
 ## Known Bugs
 
-_as of 5/3/19 - none_
+_as of 5/22/19 - none_
 
 ## Support and contact details
 

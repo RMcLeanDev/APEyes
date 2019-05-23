@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 import * as actions from './../actions';
 import HearthstoneApi from './HearthstoneApi/HearthstoneApi';
 import AllApis from './AllApis';
+import LoveCalculator from './LoveCalculator/LoveCalculator';
 
 /* eslint-disable */
 class App extends React.Component {
@@ -53,6 +54,7 @@ class App extends React.Component {
           <Route exact path={ROUTES.GIPHY_API} component={GiphyAPI} />
           <Route exact path={ROUTES.SIGN_UP} component={SignUp}/>
           <Route exact path={ROUTES.HEARTHSTONE_API} component={HearthstoneApi}/>
+          <Route exact path={ROUTES.LOVE_CALCULATOR} component={LoveCalculator}/>
           <Route component={Error404}/>
         </Switch>
       </div>
