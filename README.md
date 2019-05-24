@@ -13,6 +13,16 @@ _This webpage is designed for anyone who is interested in using any api and want
 * _Open your terminal or command prompt and input `cd desktop` then `git clone https://github.com/Lilkgb/APEyes` to install the files onto your desktop._
 * _Once downloaded, in terminal type in `cd apeyes` and it will take you into the correct file._
 * _Run `npm install` to get all needed dependencies_
+* _Next we will need a `.env` file on the top layer of our project. So in terminal run `touch .env` while your in the apeyes folder._
+* _Copy and paste this into the .env folder `GIPHY_API="api-key-here"
+FIREBASE_API_KEY="api-key-here"
+FIREBASE_AUTH_DOMAIN="xxxx.firebaseapp.com"
+FIREBASE_DATABASE_URL="https://xxxx.firebaseio.com"
+FIREBASE_PROJECT_ID="xxxx"
+FIREBASE_STORAGE_BUCKET="xxxx.appspot.com"
+FIREBASE_MESSAGING_SENDER_ID="xxxx"
+RAPID_API_KEY="api-key-here"` and if you want to use the api you must get a api key from the api's website_
+* _API's used are GiphyApi, RapidApi and firebase database is used._
 * _Run `npm run start` to bring up a live version of the website through your local host_
 * _Create a repository for yourself on github or what application you may use_
 * _Copy url link thats given and run `git remote add -Your initials- -Link-` inside your terminal_
